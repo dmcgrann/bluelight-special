@@ -1,6 +1,40 @@
-// import React, {Component} from 'react';
-// import {connect} from 'react-redux';
-// import {userSignup} from '../actions/users';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {userSignup} from '../actions/users';
+
+const SignupForm = () => {
+
+  
+  return (
+        <form onSubmit={this.handleSubmit}>
+          <h1>Sign Up Form</h1>
+
+          <label>Name</label>
+          <input
+            name='name'
+            value={name}
+            onChange={handleChange}
+            /><br/>
+
+          <label>Email</label>
+          <input
+            name='email'
+            value={email}
+            onChange={handleChange}
+            /><br/>
+
+          <label>Password</label>
+          <input
+            type='password'
+            name='password'
+            value={password}
+            onChange={handleChange}
+            /><br/>
+
+          <input type='submit'/>
+        </form>
+      )
+}
 //
 // class SignupForm extends Component {
 //   state = {
