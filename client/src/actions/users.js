@@ -9,15 +9,18 @@ const setCurrentUser = user => {
   }
 }
 
-export const userSignup = user => {
+export const userSignup = identification => {
+  const userData = {
+    user: identification
+  }
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/login", {
+    return fetch("http://localhost:3001/api/v1/signup", {
       credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(userData)
     })
       .then(r => r.json())
       .then(response => {
