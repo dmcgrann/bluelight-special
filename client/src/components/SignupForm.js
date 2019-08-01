@@ -1,25 +1,41 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {userSignup} from '../actions/users';
+import {updateSignup} from '../actions/signup';
 
-const SignupForm = () => {
+const SignupForm = ({ signupUserInfo, updateSignup, userSignup }) => {
 
-  
+  const handleChange = event => {
+    const { name, value } = event.target
+    const updatedFormData = {
+      ...signupUserInfo,
+      [name]: value
+    }
+    updateLogin(updatedFormData)
+  }
+
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    userSignup(signupUserInfo)
+  }
+
+
   return (
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <h1>Sign Up Form</h1>
 
           <label>Name</label>
           <input
             name='name'
-            value={name}
+            value={signupUserInfo.name}
             onChange={handleChange}
             /><br/>
 
           <label>Email</label>
           <input
             name='email'
-            value={email}
+            value={signupUserInfo.email}
             onChange={handleChange}
             /><br/>
 
@@ -27,7 +43,7 @@ const SignupForm = () => {
           <input
             type='password'
             name='password'
-            value={password}
+            value={signupUserInfo.password}
             onChange={handleChange}
             /><br/>
 
@@ -35,6 +51,8 @@ const SignupForm = () => {
         </form>
       )
 }
+
+ export default connect(null, mapDispatchToProps)(SignupForm);
 //
 // class SignupForm extends Component {
 //   state = {
