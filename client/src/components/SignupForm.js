@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {userSignup} from '../actions/users';
 import {updateSignup} from '../actions/signup';
@@ -11,7 +11,7 @@ const SignupForm = ({ signupUserInfo, updateSignup, userSignup }) => {
       ...signupUserInfo,
       [name]: value
     }
-    updateLogin(updatedFormData)
+    updateSignup(updatedFormData)
   }
 
 
@@ -52,7 +52,14 @@ const SignupForm = ({ signupUserInfo, updateSignup, userSignup }) => {
       )
 }
 
- export default connect(null, mapDispatchToProps)(SignupForm);
+const mapStateToProps = state => {
+  return {
+    signupUserInfo: state.signup
+  }
+}
+
+
+ export default connect(mapStateToProps, { updateSignup, userSignup })(SignupForm);
 //
 // class SignupForm extends Component {
 //   state = {
