@@ -10,14 +10,25 @@ const setCurrentUser = user => {
 }
 
 
-export const userLogin = credentials => {
+export const userLogin = user => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/v1/login', {
+    return fetch("http://localhost:3001/api/v1/login", {
+      credentials: "include",
       method: "POST",
       headers: {
-        "Content-type": "application/json"
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(credentials)
+      body: JSON.stringify(user)
     })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(setCurrentUser(response.data))
+
+        }
+      })
+      .catch(console.log)
   }
 }
