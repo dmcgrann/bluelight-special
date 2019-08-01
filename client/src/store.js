@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 // reducers will go here
-import users from '../reducers/users'
+import users from './reducers/users'
 import thunk from 'redux-thunk'
 
 

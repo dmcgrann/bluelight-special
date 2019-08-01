@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import LoginForm from './component/LoginForm'
-import SignupForm from './component/SignupForm'
+import LoginForm from './components/LoginForm'
+import SignupForm from './components/SignupForm'
 
 class App extends React.Component {
 
