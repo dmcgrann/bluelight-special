@@ -7,6 +7,12 @@ const setCurrentUser = user => {
   }
 }
 
+const logoutUser = user => {
+  return {
+    type: "LOGOUT_USER"
+  }
+}
+
 export const userSignup = identification => {
   const userData = {
     user: identification
@@ -75,5 +81,15 @@ export const getCurrentUser = () => {
         }
       })
       .catch(console.log)
+  }
+}
+
+export const logout = event => {
+  return dispatch => {
+    dispatch(logoutUser())
+    return fetch("http://localhost:3001/api/v1/logout",{
+      credentials: "include",
+      method: "DELETE"
+    })
   }
 }
