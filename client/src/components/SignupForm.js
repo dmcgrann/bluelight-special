@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {userSignup} from '../actions/users';
-import {updateSignup} from '../actions/signup';
+import {updateForm} from '../actions/forms';
 
-const SignupForm = ({ signupUserInfo, updateSignup, userSignup }) => {
+const SignupForm = ({ signupUserInfo, updateForm, userSignup }) => {
 
   const handleChange = event => {
     const { name, value } = event.target
@@ -11,7 +11,7 @@ const SignupForm = ({ signupUserInfo, updateSignup, userSignup }) => {
       ...signupUserInfo,
       [name]: value
     }
-    updateSignup(updatedFormData)
+    updateForm(updatedFormData)
   }
 
 
@@ -54,12 +54,12 @@ const SignupForm = ({ signupUserInfo, updateSignup, userSignup }) => {
 
 const mapStateToProps = state => {
   return {
-    signupUserInfo: state.signup
+    signupUserInfo: state.signupForm
   }
 }
 
 
- export default connect(mapStateToProps, { updateSignup, userSignup })(SignupForm);
+ export default connect(mapStateToProps, { updateForm, userSignup })(SignupForm);
 //
 // class SignupForm extends Component {
 //   state = {
