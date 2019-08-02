@@ -1,6 +1,4 @@
-// post request to signup named userSignup
-// post request to login named userLogin
-// get reguest to find current named getCurrentUser
+import {clearForm} from './forms'
 
 const setCurrentUser = user => {
   return {
@@ -28,7 +26,7 @@ export const userSignup = identification => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-
+          dispatch(clearForm())
         }
       })
       .catch(console.log)
@@ -51,7 +49,7 @@ export const userLogin = user => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-
+          dispatch(clearForm())
         }
       })
       .catch(console.log)
