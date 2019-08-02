@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import LoginForm from './components/LoginForm.js';
 import { connect } from 'react-redux';
-import { getCurrentUser} from './actions/users.js'
-import SignupForm from './components/SignupForm.js'
+import { getCurrentUser, logout} from './actions/users'
+import SignupForm from './components/SignupForm'
+import LoginForm from './components/LoginForm';
+import Logout from './components/Logout';
 
 class App extends React.Component {
 
@@ -13,15 +14,19 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="App">
 
-        <LoginForm/>
 
-      </div>
+        this.props.currentUser ? <Logout/> : <LoginForm/>
+
+
     );
   }
 }
 
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
 
-
-export default connect(null, {getCurrentUser}) (App);
+export default connect(mapStateToProps, {getCurrentUser, logout}) (App);
