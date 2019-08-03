@@ -13,7 +13,6 @@ import NavBar from './components/NavBar'
 class App extends React.Component {
 
   componentDidMount(){
-    this.props.getCurrentUser()
     this.props.getSales()
   }
 
@@ -33,11 +32,10 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ currentUser, saleList }) => {
+const mapStateToProps = ({ saleList }) => {
   return {
-    currentUser,
     saleList
   }
 }
 
-export default connect(mapStateToProps, {getCurrentUser, getSales, logout}) (App);
+export default connect(mapStateToProps, { getSales, logout}) (App);
