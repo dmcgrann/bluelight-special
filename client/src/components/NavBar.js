@@ -1,16 +1,30 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux'
+import Logout from './Logout'
 
-const NavBar = () => {
+const NavBar = ( {currentUser, loggedIn} ) => {
   return (
     <div className="navbar">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/logout">Logout</NavLink>
-      <NavLink to="/signup">Signup</NavLink>
-      <NavLink to="/sales">Sales</NavLink>
+
+      { loggedIn ?
+        <>Hi, {currentUser.attributes.email}!
+        <Logout/>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/sales">Sales</NavLink></>
+         :
+         <><NavLink to="/login">Login</NavLink>
+       <NavLink to="/signup">Signup</NavLink></>
+          }
     </div>
   );
 };
 
-export default NavBar;
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser,
+    loggedIn: !!currentUser
+  }
+}
+
+export default connect(mapStateToProps)(NavBar);
