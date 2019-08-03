@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const SaleList = props => {
   const currentSales =
-  props.sales.map(sale => (<ul><li key={sale.id}>{sale}</li></ul>)) 
+  props.sales.map(sale => (<p key={sale.id}>{sale.attributes.address}</p>))
 
   return currentSales
 }

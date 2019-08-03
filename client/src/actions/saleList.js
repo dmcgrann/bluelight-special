@@ -1,7 +1,7 @@
-const setCurrentSales = sale => {
+const setSaleList = sales => {
   return {
     type: "SET_SALES_LIST",
-    sale
+    sales
   }
 }
 
@@ -20,7 +20,7 @@ export const getSales = () => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(setCurrentSales(response.data))
+          dispatch(setSaleList(response.data))
         }
       })
       .catch(console.log)
