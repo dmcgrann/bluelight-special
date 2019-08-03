@@ -38,4 +38,4 @@ const mapStateToProps = ({ saleList }) => {
   }
 }
 
-export default connect(mapStateToProps, { getSales, logout}) (App);
+export default connect(mapStateToProps, { getSales }) (App);

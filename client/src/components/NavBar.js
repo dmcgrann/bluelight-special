@@ -8,13 +8,17 @@ const NavBar = ( {currentUser, loggedIn} ) => {
     <div className="navbar">
 
       { loggedIn ?
-        <>Hi, {currentUser.attributes.email}!
-        <Logout/>
+        <>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/sales">Sales</NavLink></>
+        <NavLink to="/sales">Sales</NavLink>
+        <NavLink to="/logout">Logout</NavLink>
+        <p>Hi, {currentUser.attributes.email}!</p>
+        </>
          :
-         <><NavLink to="/login">Login</NavLink>
-       <NavLink to="/signup">Signup</NavLink></>
+        <>
+        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/signup">Signup</NavLink>
+        </>
           }
     </div>
   );
