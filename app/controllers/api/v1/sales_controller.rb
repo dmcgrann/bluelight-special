@@ -4,8 +4,7 @@ class Api::V1::SalesController < ApplicationController
   # GET /sales
   def index
     @sales = Sale.all
-
-    render json: @sales
+    render json: SaleSerializer.new(@sales)
   end
 
   # GET /sales/1
@@ -18,7 +17,7 @@ class Api::V1::SalesController < ApplicationController
     @sale = Sale.new(sale_params)
 
     if @sale.save
-      render json: SaleSerialzer.new(@sale), status: :created
+      render json: SaleSerializer.new(@sale), status: :created
     else
       render json: @sale.errors, status: :unprocessable_entity
     end
