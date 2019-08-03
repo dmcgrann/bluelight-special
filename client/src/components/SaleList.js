@@ -2,12 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 
-const SaleList = props => {
-  const currentSales =
-  props.sales.map(sale => (<p key={sale.id}>{sale.attributes.address}</p>))
 
-  return currentSales
+class SaleList extends React.Component {
+
+
+  render(){
+    return (
+
+      <div></div>
+
+    );
+  }
+
 }
+
 
   const mapStateToProps = state => {
     return {

@@ -1,6 +1,6 @@
 const setSaleList = sales => {
   return {
-    type: "SET_SALES_LIST",
+    type: "SET_SALE_LIST",
     sales
   }
 }
