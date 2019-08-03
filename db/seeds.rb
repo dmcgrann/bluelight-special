@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create([{email: "test", password: "p"}, {email: "val", password: "dog"}])
+Sale.create(address: '123 Elm St', days: "Saturday", notes: "Lots of stuff.", user: users.last)

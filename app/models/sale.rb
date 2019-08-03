@@ -1,3 +1,3 @@
 class Sale < ApplicationRecord
-  belongs_to :user, serializer: UserSerializer
+  belongs_to :user
 end
