@@ -1,24 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { getSales } from '../actions/saleList'
 
-class SaleList extends React.Component {
-
-   render() {
-     return(
-       this.props.saleList != null ?
-       this.props.saleList.map(sale => (<p key={sale.id}>{sale.attributes.address}</p>)) :
-       "Please login"
-     )
-   }
+const SaleList = props => {
+  const currentSales = props.sales != null ?
+  props.sales.map(sale => (<p key={sale.id}>{sale.attributes.address}</p>)) :
+  <p>"There are not any current sales."</p>
 
 
+   return currentSales
 }
 
-
-const mapStateToProps = ({ saleList }) => {
+const mapStateToProps = state => {
   return {
-    saleList
+    sales: state.saleList
   }
 }
 
