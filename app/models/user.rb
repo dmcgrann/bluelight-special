@@ -1,4 +1,4 @@
 class User < ApplicationRecord
   has_secure_password
-  has_one :sale, serializer: SaleSerialzer
+  has_one :sale
 end

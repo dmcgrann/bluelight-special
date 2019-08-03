@@ -1,4 +1,4 @@
-class SalesController < ApplicationController
+class Api::V1::SalesController < ApplicationController
   before_action :set_sale, only: [:show, :update, :destroy]
 
   # GET /sales
@@ -18,7 +18,7 @@ class SalesController < ApplicationController
     @sale = Sale.new(sale_params)
 
     if @sale.save
-      render json: @sale, status: :created, location: @sale
+      render json: SaleSerialzer.new(@sale), status: :created
     else
       render json: @sale.errors, status: :unprocessable_entity
     end
