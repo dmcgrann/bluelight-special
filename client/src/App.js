@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser, logout} from './actions/users'
-import { getSales } from './actions/saleList'
 import SignupForm from './components/SignupForm'
 import LoginForm from './components/LoginForm';
 import Logout from './components/Logout';
@@ -11,24 +10,21 @@ import SaleList from './components/SaleList'
 class App extends React.Component {
 
   componentDidMount(){
-    this.props.getSales()
+    this.props.getCurrentUser()
   }
 
   render(){
     return (
-
-        <SaleList />
-
-
-
+      
+        this.props.currentUser ?  <p>{this.props.currentUser.attributes.email} <Logout/></p>  : <LoginForm/>
     );
   }
 }
 
-const mapStateToProps = ({ currentSales }) => {
+const mapStateToProps = ({ currentUser }) => {
   return {
-    currentSales
+    currentUser
   }
 }
 
-export default connect(mapStateToProps, {getSales}) (App);
+export default connect(mapStateToProps, {getCurrentUser, logout}) (App);
