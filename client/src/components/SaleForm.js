@@ -1,47 +1,46 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {createSale, updateSale} from '../actions/sales';
+import {updateSale, createSale} from '../actions/sales';
 
-const SaleForm = ({ newSaleInfo, updateForm, createSale, history }) => {
+const SaleForm = ({ saleInfo, updateSale, createSale, history, userId, sale }) => {
+
+  const { address, days, notes } = saleInfo
 
   const handleChange = event => {
     const { name, value } = event.target
-    const updatedFormData = {
-      ...newSaleInfo,
-      [name]: value
-    }
-    updateForm(updatedFormData)
+    updateSale(name,value)
   }
-
 
   const handleSubmit = event => {
     event.preventDefault()
-    createSale(newSaleInfo, history)
+    createSale({
+      ...saleInfo,
+      userId
+    }, history)
   }
-
 
   return (
         <form onSubmit={handleSubmit}>
           <h1>Enter Your Garagesale Info</h1>
 
-          <label>Name</label>
+          <label>Address</label>
           <input
             name='address'
-            value={newSaleInfo.address}
+            value={address}
             onChange={handleChange}
             /><br/>
 
           <label>Days</label>
           <input
             name='days'
-            value={newSaleInfo.days}
+            value={days}
             onChange={handleChange}
             /><br/>
 
           <label>Notes</label>
           <input
             name='notes'
-            value={newSaleInfo.notes}
+            value={notes}
             onChange={handleChange}
             /><br/>
 
@@ -51,10 +50,12 @@ const SaleForm = ({ newSaleInfo, updateForm, createSale, history }) => {
 }
 
 const mapStateToProps = state => {
+  const userId = state.currentUser ? state.currentUser.id : null
   return {
-    newSaleInfo: state.saleForm
+    saleInfo: state.saleForm,
+    userId
   }
 }
 
 
- export default connect(mapStateToProps, { updateForm, createSale })(SaleForm);
+ export default connect(mapStateToProps, { updateSale, createSale })(SaleForm);
