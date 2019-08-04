@@ -13,7 +13,7 @@ const logoutUser = user => {
   }
 }
 
-export const userSignup = identification => {
+export const userSignup = (identification, history) => {
   const userData = {
     user: identification
   }
@@ -33,13 +33,14 @@ export const userSignup = identification => {
         } else {
           dispatch(setCurrentUser(response.data))
           dispatch(clearForm())
+          history.push('/')
         }
       })
       .catch(console.log)
   }
 }
 
-export const userLogin = user => {
+export const userLogin = (user, history) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -56,6 +57,7 @@ export const userLogin = user => {
         } else {
           dispatch(setCurrentUser(response.data))
           dispatch(clearForm())
+          history.push('/')
         }
       })
       .catch(console.log)
