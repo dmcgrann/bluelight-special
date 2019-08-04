@@ -1,14 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateSale, createSale} from '../actions/sales';
+import {updateSaleForm} from '../actions/saleForm';
+import {createSale} from '../actions/sales'
 
-const SaleForm = ({ saleInfo, updateSale, createSale, history, userId, sale }) => {
+const SaleForm = ({ saleInfo, updateSaleForm, createSale, history, userId, sale }) => {
 
   const { address, days, notes } = saleInfo
 
   const handleChange = event => {
     const { name, value } = event.target
-    updateSale(name,value)
+    updateSaleForm(name,value)
   }
 
   const handleSubmit = event => {
@@ -58,4 +59,4 @@ const mapStateToProps = state => {
 }
 
 
- export default connect(mapStateToProps, { updateSale, createSale })(SaleForm);
+ export default connect(mapStateToProps, { updateSaleForm, createSale })(SaleForm);
