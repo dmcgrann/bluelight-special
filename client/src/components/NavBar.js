@@ -9,10 +9,10 @@ const NavBar = ( {currentUser, loggedIn} ) => {
 
       { loggedIn ?
         <>
+        <p>Hi, {currentUser.attributes.email}!</p>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/sales">Sales</NavLink>
         <NavLink to="/logout">Logout</NavLink>
-        <p>Hi, {currentUser.attributes.email}!</p>
         </>
          :
         <>
