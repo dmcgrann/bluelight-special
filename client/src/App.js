@@ -3,6 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {getSales} from './actions/saleList'
+import {getCurrentUser} from './actions/users'
 import SignupForm from './components/SignupForm'
 import LoginForm from './components/LoginForm';
 import Logout from './components/Logout';
@@ -16,6 +17,7 @@ class App extends React.Component {
 
   componentDidMount(){
     this.props.getSales()
+    this.props.getCurrentUser()
   }
 
   render(){
@@ -44,8 +46,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    sales: state.saleList
+    sales: state.saleList,
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getSales })(App));
+export default withRouter(connect(mapStateToProps, { getSales, getCurrentUser })(App));
