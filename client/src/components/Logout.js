@@ -9,7 +9,7 @@ const Logout = ({ logout }) => {
       event.preventDefault()
       logout()
       }}>
-      <input type="submit" value="Log Out" />
+      <p><input className="logout" type="submit" value="Sign Out" /></p>
     </form>
   )
 }

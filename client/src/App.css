@@ -31,3 +31,27 @@
     transform: rotate(360deg);
   }
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #007BFF;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+
+.logout
+ {
+  background-color: white;
+  color: #007BFF;
+  border: none;
+}

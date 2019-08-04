@@ -5,14 +5,14 @@ import Logout from './Logout'
 
 const NavBar = ( {currentUser, loggedIn} ) => {
   return (
-    <div className="navbar">
+    <div className="navbar" id="menuToggle">
 
       { loggedIn ?
         <>
-        <h1>Hi, {currentUser.attributes.email}!</h1>
+
         <NavLink to="/">Home</NavLink>
         <NavLink to="/sales">Sales</NavLink>
-        <NavLink to="/logout">Logout</NavLink>
+
         </>
          :
         <>
