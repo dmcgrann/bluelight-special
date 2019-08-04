@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router,Route } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { getCurrentUser, logout} from './actions/users'
 import {getSales} from './actions/saleList'
 import SignupForm from './components/SignupForm'
@@ -18,16 +18,16 @@ class App extends React.Component {
 
   render(){
     return (
-      <Router>
-      <div className="app">
+      <Switch>
+      <>
         <NavBar />
         <Route exact path="/" />
-        <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/login" component={LoginForm}/>
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={SignupForm} />
         <Route exact path="/sales" component={SaleList} />
-      </div>
-    </Router>
+      </>
+    </Switch>
     );
   }
 }
@@ -38,4 +38,4 @@ const mapStateToProps = ({ saleList }) => {
   }
 }
 
-export default connect(mapStateToProps, { getSales }) (App);
+export default withRouter(connect(mapStateToProps, { getSales })(App));
