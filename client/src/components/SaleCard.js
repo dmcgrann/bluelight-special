@@ -3,10 +3,10 @@ import React from 'react';
 const SaleCard = ({sale}) => {
   return (
     <div>
-    <p>{user.attributes.address}</p>
-    <p>{user.attributes.days}</p>
-    <p>{user.attributes.notes}</p>
+    <p>{sale.attributes.address}</p>
+    <p>{sale.attributes.days}</p>
+    <p>{sale.attributes.notes}</p>
   )
 }
 
-export default UserCard
+export default SaleCard
