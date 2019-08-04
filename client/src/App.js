@@ -8,6 +8,7 @@ import LoginForm from './components/LoginForm';
 import Logout from './components/Logout';
 import SaleList from './components/SaleList'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 
 class App extends React.Component {
 
@@ -20,6 +21,7 @@ class App extends React.Component {
       <Switch>
       <>
         <NavBar />
+        <Footer />
         <Route exact path="/" />
         <Route exact path="/login" component={LoginForm}/>
         <Route exact path="/logout" component={Logout} />
