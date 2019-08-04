@@ -6,6 +6,7 @@ const UserCard = ({user}) => {
     <p>{user.attributes.name}</p>
     <p>{user.attributes.email}</p>
     <p>{user.attributes.sale}</p>
+    </div>
   )
 }
 

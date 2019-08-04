@@ -10,6 +10,7 @@ import SaleList from './components/SaleList'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SaleForm from './components/SaleForm'
+import SaleCard from './components/SaleCard'
 
 class App extends React.Component {
 
@@ -18,6 +19,7 @@ class App extends React.Component {
   }
 
   render(){
+    const {sales} = this.props
     return (
       <Switch>
       <>
@@ -29,15 +31,20 @@ class App extends React.Component {
         <Route exact path="/signup" component={SignupForm} />
         <Route exact path="/sales" component={SaleList} />
         <Route exact path="/newsale" component={SaleForm} />
+        <Route exact path="/sales/:id" render={props => {
+              const sale = sales.find(sale => sale.id === props.match.params.id)
+              return <SaleCard sale={sale} {...props}/>
+            }
+          }/>
       </>
     </Switch>
     );
   }
 }
 
-const mapStateToProps = ({ saleList }) => {
+const mapStateToProps = state => {
   return {
-    saleList
+    sales: state.saleList
   }
 }
 

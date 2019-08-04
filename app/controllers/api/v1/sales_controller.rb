@@ -9,7 +9,7 @@ class Api::V1::SalesController < ApplicationController
 
   # GET /sales/1
   def show
-    render json: @sale
+    render json: SaleSerializer.new(@sale)
   end
 
   # POST /sales

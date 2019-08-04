@@ -6,6 +6,7 @@ const SaleCard = ({sale}) => {
     <p>{sale.attributes.address}</p>
     <p>{sale.attributes.days}</p>
     <p>{sale.attributes.notes}</p>
+    </div>
   )
 }
 
