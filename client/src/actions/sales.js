@@ -1,16 +1,4 @@
-export const updateSale = (name, value) => {
-  const saleInfo = {name,value}
-  return {
-    type: "UPDATE_SALE",
-    saleInfo
-  }
-}
-
-export const clearSale = () => {
-  return {
-    type: "CLEAR_SALE"
-  }
-}
+import {clearSaleForm} from './saleForm'
 
 const setCurrentSale = sale => {
   return {
@@ -41,6 +29,7 @@ export const createSale = (details, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentSale(response.data))
+          dispatch(clearSaleForm())
           history.push('/')
         }
       })
