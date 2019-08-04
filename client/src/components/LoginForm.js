@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/users';
-import {updateForm} from '../actions/forms';
+import {updateUserForm} from '../actions/userForms';
 
-const LoginForm = ({ loginUserInfo, updateForm, userLogin, history }) => {
+const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
 
   const handleChange = event => {
     const { name, value } = event.target
@@ -11,7 +11,7 @@ const LoginForm = ({ loginUserInfo, updateForm, userLogin, history }) => {
       ...loginUserInfo,
       [name]: value
     }
-    updateForm(updatedFormData)
+    updateUserForm(updatedFormData)
   }
 
 
@@ -54,4 +54,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { updateForm, userLogin })(LoginForm);
+export default connect(mapStateToProps, { updateUserForm, userLogin })(LoginForm);

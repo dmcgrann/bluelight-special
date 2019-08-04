@@ -1,4 +1,4 @@
-import {clearForm} from './forms'
+import {clearUserForm} from './userForms'
 
 const setCurrentUser = user => {
   return {
@@ -32,7 +32,7 @@ export const userSignup = (identification, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          dispatch(clearForm())
+          dispatch(clearUserForm())
           history.push('/')
         }
       })
@@ -56,7 +56,7 @@ export const userLogin = (user, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          dispatch(clearForm())
+          dispatch(clearUserForm())
           history.push('/')
         }
       })
