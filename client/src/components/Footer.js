@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Logout from './Logout'
 
@@ -9,7 +9,7 @@ const Footer = ( {currentUser, loggedIn} ) => {
 
       { loggedIn ?
         <>
-        <p>Logged in as {currentUser.attributes.email}.</p>
+        <p>Logged in as <Link to={`/users/${currentUser.id}`}>{currentUser.attributes.email}</Link>.</p>
         <p>Copyright (c) 2019. All Rights Reserved.</p>
         <Logout />
         </>
