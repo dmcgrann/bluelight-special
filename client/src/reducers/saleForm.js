@@ -7,7 +7,11 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE_SALE":
-      return action.userInfo
+    const newValue = {
+      ...state,
+      [action.saleInfo.name]: action.saleInfo.value
+    }
+      return newValue
     case "CLEAR_SALE":
       return initialState
     default:
