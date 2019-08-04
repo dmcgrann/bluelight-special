@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import { getCurrentUser, logout} from './actions/users'
 import {getSales} from './actions/saleList'
 import SignupForm from './components/SignupForm'
 import LoginForm from './components/LoginForm';
