@@ -45,6 +45,6 @@ class Api::V1::SalesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def sale_params
-      params.require(:sale).permit(:address, :days, :notes)
+      params.require(:sale).permit(:address, :days, :notes, :user_id)
     end
 end
