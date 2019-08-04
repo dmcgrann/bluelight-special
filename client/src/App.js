@@ -9,6 +9,7 @@ import Logout from './components/Logout';
 import SaleList from './components/SaleList'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import SaleForm from './components/SaleForm'
 
 class App extends React.Component {
 
@@ -27,6 +28,7 @@ class App extends React.Component {
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={SignupForm} />
         <Route exact path="/sales" component={SaleList} />
+        <Route exact path="/newsale" component={SaleForm} />
       </>
     </Switch>
     );
