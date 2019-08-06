@@ -26,7 +26,7 @@ export const createSale = (details, history) => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          alert(response.error)
+          alert("You cannot add a sale at this time. Please contact administrator.")
         } else {
           dispatch(setCurrentSale(response.data))
           dispatch(clearSaleForm())
