@@ -16,6 +16,7 @@ const NavBar = ( {currentUser, loggedIn} ) => {
         </>
          :
         <>
+        <NavLink to="/sales">Sales</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/signup">Signup</NavLink>
         </>
