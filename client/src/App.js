@@ -12,6 +12,7 @@ import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SaleForm from './components/SaleForm'
 import SaleCard from './components/SaleCard'
+import EditSaleCard from './components/EditSaleCard'
 
 class App extends React.Component {
 
@@ -34,12 +35,13 @@ class App extends React.Component {
         <Route exact path="/signup" component={SignupForm} />
         <Route exact path="/sales" component={SaleList} />
         <Route exact path="/newsale" component={SaleForm} />
+
         <Route exact path="/sales/:id" render={props => {
               const sale = sales.find(sale => sale.id === props.match.params.id)
-              if (sale.attributes.user_id ===  userId){
-                return <SaleCard sale={sale} {...props}/>
+              if (sale.attributes.user_id === userId){
+                return <EditSaleCard sale={sale} {...props}/>
               }else{
-                return "You can't do that."
+                return <SaleCard sale={sale} {...props}/>
               }
             }
           }/>
