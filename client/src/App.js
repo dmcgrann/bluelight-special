@@ -21,7 +21,8 @@ class App extends React.Component {
   }
 
   render(){
-    const {sales} = this.props
+    const {sales, userId} = this.props
+
     return (
       <Switch>
       <>
@@ -35,7 +36,11 @@ class App extends React.Component {
         <Route exact path="/newsale" component={SaleForm} />
         <Route exact path="/sales/:id" render={props => {
               const sale = sales.find(sale => sale.id === props.match.params.id)
-              return <SaleCard sale={sale} {...props}/>
+              if (sale.attributes.user_id ===  userId){
+                return <SaleCard sale={sale} {...props}/>
+              }else{
+                return "You can't do that."
+              }
             }
           }/>
       </>
@@ -45,8 +50,10 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
+  const userId = state.currentUser ? state.currentUser.attributes.id : ""
   return {
     sales: state.saleList,
+    userId
   }
 }
 
