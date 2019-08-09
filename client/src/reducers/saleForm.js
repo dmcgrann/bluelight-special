@@ -12,6 +12,8 @@ export default (state = initialState, action) => {
       [action.saleInfo.name]: action.saleInfo.value
     }
       return newValue
+    case "LOAD_EDIT_FORM":
+      return action.formData
     case "CLEAR_SALE_FORM":
       return initialState
     default:

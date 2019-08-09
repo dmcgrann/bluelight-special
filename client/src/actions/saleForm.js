@@ -11,3 +11,15 @@ export const clearSaleForm = () => {
     type: "CLEAR_SALE_FORM"
   }
 }
+
+export const loadEditForm = sale =>{
+  const formData = {
+    address: sale.attributes.address,
+    days: sale.attributes.days,
+    notes: sale.attributes.notes
+  }
+  return {
+    type: "LOAD_EDIT_FORM",
+    formData
+  }
+}
