@@ -1,4 +1,5 @@
 import {clearUserForm} from './userForms'
+import {getSales} from './saleList'
 
 const setCurrentUser = user => {
   return {
@@ -56,6 +57,7 @@ export const userLogin = (user, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
+          dispatch(getSales())
           dispatch(clearUserForm())
           history.push('/')
         }

@@ -1,4 +1,5 @@
 import {clearSaleForm} from './saleForm'
+import {getSales} from './saleList'
 
 const setCurrentSale = sale => {
   return {
@@ -15,7 +16,7 @@ const setEditSale = sale => {
 }
 
 
-const deletSale = saleId => {
+const setDeleteSale = saleId => {
   return {
     type: "DELETE_SALE",
     saleId
@@ -44,6 +45,7 @@ export const createSale = (details, history) => {
           alert("You cannot add a sale at this time. Please contact administrator.")
         } else {
           dispatch(setCurrentSale(response.data))
+          dispatch(getSales())
           dispatch(clearSaleForm())
           history.push('/')
         }
@@ -73,6 +75,7 @@ export const editSale = (details, history) => {
           alert("You cannot edit this sale. Please contact administrator.")
         } else {
           dispatch(setEditSale(response.data))
+          dispatch(getSales())
           history.push('/sales')
         }
       })
@@ -92,10 +95,10 @@ export const deleteSale = (saleId, history) => {
     .then(r => r.json())
     .then(response => {
       if (response.error) {
-        alert("You cannot delete this sale. Please contact administrator.")
+        alert(response.error)
       } else {
-        dispatch(deleteSale(saleId))
-        history.push('/')
+        dispatch(setDeleteSale(saleId))
+        history.push('/sales')
       }
     })
     .catch(console.log)

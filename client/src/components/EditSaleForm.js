@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loadEditForm} from '../actions/saleForm';
+import {loadEditForm, clearSaleForm} from '../actions/saleForm';
 import {editSale, deleteSale} from '../actions/sales'
 import SaleForm from './SaleForm'
 
@@ -12,6 +12,10 @@ class EditSaleForm extends React.Component {
 
   componentDidUpdate(prevProps){
     this.props.sale && !prevProps.sale && this.props.loadEditForm(this.props.sale)
+  }
+
+  componentWillUnmount(){
+    this.props.clearSaleForm()
   }
 
 
@@ -37,4 +41,4 @@ class EditSaleForm extends React.Component {
   }
 }
 
-export default connect(null, { editSale, loadEditForm, deleteSale })(EditSaleForm);
+export default connect(null, { editSale, loadEditForm, clearSaleForm, deleteSale })(EditSaleForm);
