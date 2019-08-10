@@ -44,14 +44,14 @@ export const createSale = (details, history) => {
   }
 }
 
-export const editSale = (details) => {
+export const editSale = (details, history) => {
   return dispatch => {
     const saleData = {
       address: details.address,
       days: details.days,
       notes: details.notes
     }
-    return fetch("http://localhost:3001/api/v1/sales/${details.saleId}", {
+    return fetch(`http://localhost:3001/api/v1/sales/${details.saleId}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -65,6 +65,7 @@ export const editSale = (details) => {
           alert("You cannot this sale. Please contact administrator.")
         } else {
           dispatch(setEditSale(response.data))
+          history.push('/sales')
         }
       })
       .catch(console.log)

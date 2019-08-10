@@ -1,18 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import {createSale} from '../actions/sales'
-import {updateSaleForm} from '../actions/saleForm';
+import {editSale} from '../actions/sales'
+import {bindActionCreators} from 'redux'
+
 
 class EditSale extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       isEditing: false,
+      submit: false,
       sale: this.props.sale.attributes
     };
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+  
 
   toggleEdit() {
     this.setState({isEditing: !this.state.isEditing})
@@ -25,15 +30,19 @@ class EditSale extends React.Component {
     return this.setState({sale: sale});
     };
 
-  handleSubmit() {
-
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.editSale(this.state.sale)
+    this.setState({
+      submit: true
+    })
   }
 
   render(){
     if (this.state.isEditing) {
       return (
         <div>
-        <form >
+        <form onSubmit={this.handleSubmit}>
           <h1>Update Your Garagesale</h1>
 
           <label>Address</label>
@@ -59,7 +68,7 @@ class EditSale extends React.Component {
 
           <input type='submit'/>
         </form>
-      )
+
         </div>
       )
     }
@@ -76,4 +85,11 @@ class EditSale extends React.Component {
 
 }
 
-export default connect(null, { createSale })(EditSale);
+const mapStateToProps = state => ({ sales: state.sales })
+
+const mapDispatchToProps = dispatch => ({
+  editSale: sale => dispatch({type: 'EDIT_SALE', sale}),
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditSale);

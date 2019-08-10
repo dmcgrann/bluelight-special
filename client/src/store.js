@@ -14,8 +14,7 @@ const reducer = combineReducers({
   loginForm,
   signupForm,
   saleList,
-  saleForm,
-  saleUpdate
+  saleForm
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
