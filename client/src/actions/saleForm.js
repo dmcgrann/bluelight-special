@@ -13,13 +13,13 @@ export const clearSaleForm = () => {
 }
 
 export const loadEditForm = sale =>{
-  const formData = {
+  const saleInfo = {
     address: sale.attributes.address,
     days: sale.attributes.days,
     notes: sale.attributes.notes
   }
   return {
     type: "LOAD_EDIT_FORM",
-    formData
+    saleInfo
   }
 }

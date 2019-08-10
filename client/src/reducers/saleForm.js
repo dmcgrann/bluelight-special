@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     }
       return newValue
     case "LOAD_EDIT_FORM":
-      return action.formData
+      return action.saleInfo
     case "CLEAR_SALE_FORM":
       return initialState
     default:
