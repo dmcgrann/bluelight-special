@@ -1,22 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateSaleForm, loadEditForm} from '../actions/saleForm';
+import {loadEditForm} from '../actions/saleForm';
 import {editSale} from '../actions/sales'
+import SaleForm from './SaleForm'
 
 class EditSaleForm extends React.Component {
 
+  componentDidMount() {
+    this.props.sale && this.props.loadEditForm(this.props.sale)
+  }
+
+
   render(){
+
     return (
-          <p>content</p>)
+          <SaleForm />
+        )
   }
 }
 
-const mapStateToProps = state => {
-  const userId = state.currentUser ? state.currentUser.id : null
-  return {
-    saleInfo: state.saleForm,
-    userId
-  }
-}
-
- export default connect(mapStateToProps, { updateSaleForm, editSale })(EditSaleForm);
+export default connect(null, { editSale, loadEditForm })(EditSaleForm);
