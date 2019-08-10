@@ -25,7 +25,7 @@ class Api::V1::SalesController < ApplicationController
   # PATCH/PUT /sales/1
   def update
     if @sale.update(sale_params)
-      render json: @sale
+      render json: SaleSerializer.new(@sale), status: :ok
     else
       render json: @sale.errors, status: :unprocessable_entity
     end
