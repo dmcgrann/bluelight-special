@@ -14,6 +14,7 @@ import SaleForm from './components/SaleForm'
 import SaleCard from './components/SaleCard'
 import EditSale from './components/EditSale'
 import EditSaleForm from './components/EditSaleForm'
+import NewSaleFormContainer from './components/NewSaleFormContainer'
 
 class App extends React.Component {
 
@@ -35,7 +36,7 @@ class App extends React.Component {
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={SignupForm} />
         <Route exact path="/sales" component={SaleList} />
-        <Route exact path="/newsale" component={SaleForm} />
+        <Route exact path="/newsale" component={NewSaleFormContainer} />
         <Route exact path="/sales/:id" render={props => {
               const sale = sales.find(sale => sale.id === props.match.params.id)
               if (sale.attributes.user_id === userId){
