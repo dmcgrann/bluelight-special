@@ -13,6 +13,7 @@ import Footer from './components/Footer'
 import SaleForm from './components/SaleForm'
 import SaleCard from './components/SaleCard'
 import EditSale from './components/EditSale'
+import EditSaleForm from './components/EditSaleForm'
 
 class App extends React.Component {
 
@@ -44,7 +45,15 @@ class App extends React.Component {
               }
             }
           }/>
-
+        <Route exact path="/sales/:id/edit" render={props => {
+            if (sales != null){
+              const sale = sales.find(sale => sale.id === props.match.params.id)
+                if (sale.attributes.user_id === userId){
+                  return <EditSaleForm sale={sale} {...props}/>
+                }
+              }
+            }
+        }/>
       </>
     </Switch>
     );
