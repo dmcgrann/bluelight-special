@@ -7,6 +7,13 @@ const setCurrentSale = sale => {
   }
 }
 
+const setEditSale = sale => {
+  return {
+    type: "SET_EDIT_SALE",
+    sale
+  }
+}
+
 export const createSale = (details, history) => {
   return dispatch => {
     const saleData = {
@@ -31,6 +38,33 @@ export const createSale = (details, history) => {
           dispatch(setCurrentSale(response.data))
           dispatch(clearSaleForm())
           history.push('/')
+        }
+      })
+      .catch(console.log)
+  }
+}
+
+export const editSale = (details) => {
+  return dispatch => {
+    const saleData = {
+      address: details.address,
+      days: details.days,
+      notes: details.notes
+    }
+    return fetch("http://localhost:3001/api/v1/sales/${details.saleId}", {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(saleData)
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert("You cannot this sale. Please contact administrator.")
+        } else {
+          dispatch(setEditSale(response.data))
         }
       })
       .catch(console.log)
