@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {loadEditForm} from '../actions/saleForm';
-import {editSale} from '../actions/sales'
+import {editSale, deleteSale} from '../actions/sales'
 import SaleForm from './SaleForm'
 
 class EditSaleForm extends React.Component {
@@ -24,11 +24,17 @@ class EditSaleForm extends React.Component {
   }
 
   render(){
-    const {sale} = this.props
+    const {sale, deleteSale, history} = this.props
+    const saleId = sale ? sale.id : null
     return (
+      <>
           <SaleForm handleSubmit={this.handleSubmit} />
+
+        <p><button onClick={()=>deleteSale(saleId, history)}>Delete</button></p>
+      </>
+
         )
   }
 }
 
-export default connect(null, { editSale, loadEditForm })(EditSaleForm);
+export default connect(null, { editSale, loadEditForm, deleteSale })(EditSaleForm);

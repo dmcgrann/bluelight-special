@@ -33,7 +33,9 @@ class Api::V1::SalesController < ApplicationController
 
   # DELETE /sales/1
   def destroy
-    @sale.destroy
+    if @sale.destroy
+      render json: {notice: "sale deleted"}, status: :ok
+    end
   end
 
   private

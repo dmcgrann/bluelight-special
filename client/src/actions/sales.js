@@ -21,6 +21,13 @@ const updateSuccess = () => {
   }
 }
 
+const deletSale = saleId => {
+  return {
+    type: "DELETE_SALE",
+    saleId
+  }
+}
+
 export const createSale = (details, history) => {
   return dispatch => {
     const saleData = {
@@ -76,5 +83,27 @@ export const editSale = (details, history) => {
         }
       })
       .catch(console.log)
+  }
+}
+
+export const deleteSale = (saleId, history) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/sales/${saleId}`,{
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(r => r.json())
+    .then(response => {
+      if (response.error) {
+        alert("You cannot delete this sale. Please contact administrator.")
+      } else {
+        dispatch(deleteSale(saleId))
+        history.push('/')
+      }
+    })
+    .catch(console.log)
   }
 }
