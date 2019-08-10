@@ -14,6 +14,13 @@ const setEditSale = sale => {
   }
 }
 
+const updateSuccess = () => {
+  return {
+    type: "UPDATE_SUCCESS",
+    redirectAfter: '/'
+  }
+}
+
 export const createSale = (details, history) => {
   return dispatch => {
     const saleData = {
@@ -62,7 +69,7 @@ export const editSale = (details, history) => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          alert("You cannot this sale. Please contact administrator.")
+          alert("You cannot edit this sale. Please contact administrator.")
         } else {
           dispatch(setEditSale(response.data))
           history.push('/sales')
