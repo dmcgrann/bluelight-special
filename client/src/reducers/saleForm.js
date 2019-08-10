@@ -1,7 +1,7 @@
 const initialState = {
   address: "",
   days: "",
-  notes: ""
+  notes: "",
 }
 
 export default (state = initialState, action) => {

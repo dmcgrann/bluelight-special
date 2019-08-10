@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {updateSaleForm} from '../actions/saleForm';
-import {createSale} from '../actions/sales'
 
-const SaleForm = ({ saleInfo, updateSaleForm, createSale, history, userId, sale }) => {
+const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sale }) => {
 
   const { address, days, notes } = saleInfo
 
@@ -12,16 +11,11 @@ const SaleForm = ({ saleInfo, updateSaleForm, createSale, history, userId, sale 
     updateSaleForm(name,value)
   }
 
-  const handleSubmit = event => {
-    event.preventDefault()
-    createSale({
-      ...saleInfo,
-      userId
-    }, history)
-  }
-
   return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={event => {
+            event.preventDefault()
+            handleSubmit(saleInfo)}
+          }>
           <h1>Enter Your Garagesale Info</h1>
 
           <label>Address</label>
@@ -59,4 +53,4 @@ const mapStateToProps = state => {
 }
 
 
- export default connect(mapStateToProps, { updateSaleForm, createSale })(SaleForm);
+ export default connect(mapStateToProps, { updateSaleForm })(SaleForm);
