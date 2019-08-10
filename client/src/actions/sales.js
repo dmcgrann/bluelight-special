@@ -14,12 +14,6 @@ const setEditSale = sale => {
   }
 }
 
-const updateSuccess = () => {
-  return {
-    type: "UPDATE_SUCCESS",
-    redirectAfter: '/'
-  }
-}
 
 const deletSale = saleId => {
   return {
