@@ -11,7 +11,7 @@ const NewSaleFormContainer = ({ createSale, history }) => {
       userId
     }, history)
   }
-  return <SaleForm history={history} handleSubmit={handleSubmit}/>
+  return <SaleForm handleSubmit={handleSubmit}/>
 }
 
 
