@@ -10,8 +10,8 @@ class EditSaleForm extends React.Component {
     this.props.sale && this.props.loadEditForm(this.props.sale)
   }
 
-  componentWillRecieveProps(nextProps){
-    this.props.sale && nextProps.sale && this.props.loadEditForm(this.props.sale)
+  componentDidUpdate(prevProps){
+    this.props.sale && !prevProps.sale && this.props.loadEditForm(this.props.sale)
   }
 
 
