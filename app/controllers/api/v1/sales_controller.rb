@@ -14,9 +14,8 @@ class Api::V1::SalesController < ApplicationController
 
   # POST /sales
   def create
-    @sale = Sale.new(sale_params)
-    if @sale.valid? && (current_user.id == @sale.user_id)
-      @sale.save
+    @sale = current_user.sales.build(sale_params)
+    if  @sale.save
       render json: SaleSerializer.new(@sale), status: :created
     else
       render json: @sale.errors, status: :unprocessable_entity
