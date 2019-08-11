@@ -34,7 +34,7 @@ class Api::V1::SalesController < ApplicationController
   # DELETE /sales/1
   def destroy
     if @sale.destroy
-      render json: {data: "deleted"}, status: 204
+      render json: SaleSerializer.new(@sales), status: 204
     else
       render json: @sale.errors, status: :unprocessable_entity
     end
