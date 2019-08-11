@@ -87,17 +87,15 @@ export const deleteSale = (saleId, history) => {
   return dispatch => {
     return fetch(`http://localhost:3001/api/v1/sales/${saleId}`,{
       credentials: "include",
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      }
+      method: "DELETE"
     })
-    .then(r => r.json())
+
     .then(response => {
       if (response.error) {
         alert(response.error)
       } else {
         dispatch(setDeleteSale(saleId))
+        dispatch(clearSaleForm())
         history.push('/sales')
       }
     })
