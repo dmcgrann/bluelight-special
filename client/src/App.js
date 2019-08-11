@@ -10,7 +10,6 @@ import Logout from './components/Logout';
 import SaleList from './components/SaleList'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
-import SaleForm from './components/SaleForm'
 import SaleCard from './components/SaleCard'
 import EditSale from './components/EditSale'
 import EditSaleForm from './components/EditSaleForm'
@@ -39,6 +38,9 @@ class App extends React.Component {
         <Route exact path="/newsale" component={NewSaleFormContainer} />
         <Route exact path="/sales/:id" render={props => {
               const sale = sales.find(sale => sale.id === props.match.params.id)
+              if (sale === undefined){
+                return <SaleList/>
+                }
               if (sale.attributes.user_id === userId){
                 return <EditSale sale={sale} {...props}/>
               }else{
@@ -54,8 +56,8 @@ class App extends React.Component {
                 }else if (sale.attributes.user_id === userId){
                   return <EditSaleForm sale={sale} {...props}/>
               }
-              }
             }
+          }
         }/>
       </>
     </Switch>
