@@ -49,9 +49,11 @@ class App extends React.Component {
         <Route exact path="/sales/:id/edit" render={props => {
             if (sales != null){
               const sale = sales.find(sale => sale.id === props.match.params.id)
-                if (sale.attributes.user_id === userId){
+                if (sale === undefined){
+                  return <SaleList/>
+                }else if (sale.attributes.user_id === userId){
                   return <EditSaleForm sale={sale} {...props}/>
-                }
+              }
               }
             }
         }/>

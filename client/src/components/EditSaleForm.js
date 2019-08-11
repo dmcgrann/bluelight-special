@@ -10,14 +10,6 @@ class EditSaleForm extends React.Component {
     this.props.sale && this.props.loadEditForm(this.props.sale)
   }
 
-  componentDidUpdate(prevProps){
-    this.props.sale && !prevProps.sale && this.props.loadEditForm(this.props.sale)
-  }
-
-  componentWillUnmount(){
-    this.props.clearSaleForm()
-  }
-
 
   handleSubmit = (saleInfo) => {
     const {sale, editSale, history} = this.props
