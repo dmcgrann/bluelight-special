@@ -5,7 +5,6 @@ import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
 import saleList from './reducers/saleList'
 import saleForm from './reducers/saleForm'
-import saleUpdate from './reducers/saleUpdate'
 import thunk from 'redux-thunk'
 
 
