@@ -34,12 +34,12 @@ class App extends React.Component {
         <Route exact path="/login" component={LoginForm}/>
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={SignupForm} />
-        <Route exact path="/sales" component={SaleList} />
-        <Route exact path="/newsale" component={NewSaleFormContainer} />
+        <Route exact path="/sales" component={SaleList}/>
+        <Route exact path="/sales/new" component={NewSaleFormContainer} />
         <Route exact path="/sales/:id" render={props => {
               const sale = sales.find(sale => sale.id === props.match.params.id)
               if (sale === undefined){
-                return <SaleList/>
+                return null
                 }
               if (sale.attributes.user_id === userId){
                 return <EditSaleCard sale={sale} {...props}/>
