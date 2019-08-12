@@ -1,7 +1,7 @@
 import React from 'react';
 import SaleForm from './SaleForm'
 import {connect} from 'react-redux';
-import {createSale} from '../actions/sales'
+import {createSale} from '../../actions/sales'
 
 const NewSaleFormContainer = ({ createSale, history }) => {
 

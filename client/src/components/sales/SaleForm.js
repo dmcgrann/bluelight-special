@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateSaleForm} from '../actions/saleForm';
+import {updateSaleForm} from '../../actions/saleForm';
 
 const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sale }) => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {userLogin} from '../actions/users';
-import {updateUserForm} from '../actions/userForms';
+import {userLogin} from '../../actions/users';
+import {updateUserForm} from '../../actions/userForms';
 
 const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loadEditForm, clearSaleForm} from '../actions/saleForm';
-import {editSale, deleteSale} from '../actions/sales'
+import {loadEditForm, clearSaleForm} from '../../actions/saleForm';
+import {editSale, deleteSale} from '../../actions/sales'
 import SaleForm from './SaleForm'
 
 class EditSaleFormContainer extends React.Component {

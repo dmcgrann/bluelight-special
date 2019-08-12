@@ -2,18 +2,18 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import {getSales} from './actions/saleList'
-import {getCurrentUser} from './actions/users'
-import SignupForm from './components/SignupForm'
-import LoginForm from './components/LoginForm';
-import Logout from './components/Logout';
-import SaleList from './components/SaleList'
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
-import SaleCard from './components/SaleCard'
-import EditSale from './components/EditSale'
-import EditSaleFormContainer from './components/EditSaleFormContainer'
-import NewSaleFormContainer from './components/NewSaleFormContainer'
+import {getSales} from '../actions/saleList'
+import {getCurrentUser} from '../actions/users'
+import SignupForm from '../components/users/SignupForm'
+import LoginForm from '../components/users/LoginForm';
+import Logout from '../components/users/Logout';
+import SaleList from '../components/sales/SaleList'
+import NavBar from './NavBar'
+import Footer from './Footer'
+import SaleCard from '../components/sales/SaleCard'
+import EditSaleCard from '../components/sales/EditSaleCard'
+import EditSaleFormContainer from '../components/sales/EditSaleFormContainer'
+import NewSaleFormContainer from '../components/sales/NewSaleFormContainer'
 
 class App extends React.Component {
 
@@ -42,7 +42,7 @@ class App extends React.Component {
                 return <SaleList/>
                 }
               if (sale.attributes.user_id === userId){
-                return <EditSale sale={sale} {...props}/>
+                return <EditSaleCard sale={sale} {...props}/>
               }else{
                 return <SaleCard sale={sale} {...props}/>
               }
