@@ -12,7 +12,7 @@ import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import SaleCard from './components/SaleCard'
 import EditSale from './components/EditSale'
-import EditSaleForm from './components/EditSaleForm'
+import EditSaleFormContainer from './components/EditSaleFormContainer'
 import NewSaleFormContainer from './components/NewSaleFormContainer'
 
 class App extends React.Component {
@@ -54,7 +54,7 @@ class App extends React.Component {
                 if (sale === undefined){
                   return <SaleList/>
                 }else if (sale.attributes.user_id === userId){
-                  return <EditSaleForm sale={sale} {...props}/>
+                  return <EditSaleFormContainer sale={sale} {...props}/>
               }
             }
           }

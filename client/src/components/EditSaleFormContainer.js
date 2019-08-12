@@ -4,7 +4,7 @@ import {loadEditForm, clearSaleForm} from '../actions/saleForm';
 import {editSale, deleteSale} from '../actions/sales'
 import SaleForm from './SaleForm'
 
-class EditSaleForm extends React.Component {
+class EditSaleFormContainer extends React.Component {
 
   componentDidMount() {
     this.props.sale && this.props.loadEditForm(this.props.sale)
@@ -33,4 +33,4 @@ class EditSaleForm extends React.Component {
   }
 }
 
-export default connect(null, { editSale, loadEditForm, clearSaleForm, deleteSale })(EditSaleForm);
+export default connect(null, { editSale, loadEditForm, clearSaleForm, deleteSale })(EditSaleFormContainer);
