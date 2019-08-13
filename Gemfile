@@ -20,6 +20,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'mini_magick', '~> 4.8'
 gem 'fast_jsonapi', '~> 1.5'
 
+gem 'dotenv-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

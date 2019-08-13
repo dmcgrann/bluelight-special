@@ -14,6 +14,7 @@ import SaleCard from '../components/sales/SaleCard'
 import EditSaleCard from '../components/sales/EditSaleCard'
 import EditSaleFormContainer from '../components/sales/EditSaleFormContainer'
 import NewSaleFormContainer from '../components/sales/NewSaleFormContainer'
+import MapContainer from '../MapContainer'
 
 class App extends React.Component {
 
@@ -35,6 +36,7 @@ class App extends React.Component {
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={SignupForm} />
         <Route exact path="/sales" component={SaleList}/>
+        <Route exact path="/map" component={MapContainer}/>
         <Route exact path="/sales/new" component={NewSaleFormContainer} />
         <Route exact path="/sales/:id" render={props => {
               const sale = sales.find(sale => sale.id === props.match.params.id)

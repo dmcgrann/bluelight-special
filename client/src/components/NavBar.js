@@ -12,6 +12,7 @@ const NavBar = ( {currentUser, loggedIn} ) => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/sales">Sales</NavLink>
         <NavLink to="/sales/new">Sale Form</NavLink>
+        <NavLink to="/map">Map View</NavLink>
 
         </>
          :
