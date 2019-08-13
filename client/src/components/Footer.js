@@ -13,7 +13,7 @@ const Footer = ( {currentUser, loggedIn} ) => {
         <Logout />
         </>
          :
-        null
+        <p>Copyright (c) 2019. All Rights Reserved.</p>
           }
     </div>
   );
