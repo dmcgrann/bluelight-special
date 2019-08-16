@@ -9,7 +9,7 @@ class MapContainer extends React.Component {
     const {sales} = this.props
     return sales.map((sale, index) => {
       const saleString = sale.attributes.address.replace(/\s/g, '_')
-      console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${saleString}&key=AIzaSyB3Gda60EZKyHwzvuqE1nSMO28ZIxAwSVQ`)
+      console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${saleString}&key=""`)
     })
     //   return <Marker key={index} id={index} results={`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=AIzaSyB3Gda60EZKyHwzvuqE1nSMO28ZIxAwSVQ`}
     //
@@ -45,5 +45,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(GoogleApiWrapper({
-  apiKey: "AIzaSyB3Gda60EZKyHwzvuqE1nSMO28ZIxAwSVQ"
+  apiKey: ""
 })(MapContainer))
