@@ -4,24 +4,16 @@ import {connect} from 'react-redux';
 
 class MapContainer extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      stores: [{latitude: 42.367349, longitude: -83.359542},
-              {latitude: 42.3673398, longitude: -83.3609695},
-              {latitude: 42.365660, longitude: -83.360767}]
-    }
-  }
 
   displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
-      return <Marker key={index} id={index} position={{
-       lat: store.latitude,
-       lng: store.longitude
-     }}
-     onClick={() => console.log("You clicked me!")} />
+    const {sales} = this.props
+    return sales.map((sale, index) => {
+      console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=AIzaSyB3Gda60EZKyHwzvuqE1nSMO28ZIxAwSVQ`)
     })
+    //   return <Marker key={index} id={index} results={`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=AIzaSyB3Gda60EZKyHwzvuqE1nSMO28ZIxAwSVQ`}
+    //
+    //  onClick={() => console.log("You clicked me!")} />
+    // })
   }
 
   render() {
@@ -45,6 +37,12 @@ class MapContainer extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ""
-})(MapContainer)
+const mapStateToProps = state => {
+  return {
+    sales: state.saleList
+  }
+}
+
+export default connect(mapStateToProps)(GoogleApiWrapper({
+  apiKey: "AIzaSyB3Gda60EZKyHwzvuqE1nSMO28ZIxAwSVQ"
+})(MapContainer))
