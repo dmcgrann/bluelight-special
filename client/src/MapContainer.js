@@ -12,8 +12,6 @@ class MapContainer extends React.Component {
       const coords = fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=`)
         .then(r=>r.json())
         .then(p=> p.results[0].geometry.location)
-    //   console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${saleString}&key=AIzaSyAGPglsk2iBXIKVn2kxhNqT4M8SoQgMzRI`)
-    // })
       console.log({coords})
       return <Marker key={index} id={index} position={{coords}}/>
     })
