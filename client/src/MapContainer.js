@@ -9,12 +9,15 @@ class MapContainer extends React.Component {
     const {sales} = this.props
     return sales.map((sale, index) => {
       const saleString = sale.attributes.address.replace(/\s/g, '_')
-      console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${saleString}&key=""`)
-    })
-    //   return <Marker key={index} id={index} results={`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=AIzaSyB3Gda60EZKyHwzvuqE1nSMO28ZIxAwSVQ`}
-    //
-    //  onClick={() => console.log("You clicked me!")} />
+      const coords = fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=`)
+                        .then(r=>r.json())
+                        .then(data=>data.results[0].geometry.location)
+    //   console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${saleString}&key=AIzaSyAGPglsk2iBXIKVn2kxhNqT4M8SoQgMzRI`)
     // })
+      return <Marker key={index} id={index} position={coords}
+
+     onClick={() => console.log("You clicked me!")} />
+    })
   }
 
   render() {
