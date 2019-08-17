@@ -8,20 +8,20 @@ class MapContainer extends React.Component {
   displayMarkers = () => {
     const {sales} = this.props
     return sales.map((sale, index) => {
-      const saleString = sale.attributes.address.replace(/\s/g, '_')
+      // const saleString = sale.attributes.address.replace(/\s/g, '_')
       const coords = fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=`)
-                        .then(r=>r.json())
-                        .then(data=>data.results[0].geometry.location)
+        .then(r=>r.json())
+        .then(p=> p.results[0].geometry.location)
     //   console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${saleString}&key=AIzaSyAGPglsk2iBXIKVn2kxhNqT4M8SoQgMzRI`)
     // })
-      return <Marker key={index} id={index} position={coords}
-
-     onClick={() => console.log("You clicked me!")} />
+      console.log({coords})
+      return <Marker key={index} id={index} position={{coords}}/>
     })
+
   }
 
   render() {
-
+    const {sales} = this.props
     const mapStyles = {
       width: '100%',
       height: '100%',
