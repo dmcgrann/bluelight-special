@@ -9,7 +9,10 @@ class MapContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      coords: []
+      coords: [],
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
     }
   }
 
@@ -24,8 +27,10 @@ class MapContainer extends React.Component {
       const markers = locations.map((place,index) => {
         const lat = place.results[0].geometry.location.lat;
         const lng = place.results[0].geometry.location.lng;
+        const address = place.results[0].formatted_address;
         return (
           <Marker
+            onClick={this.onMarkerClick}
             key={index}
             position={
               {
@@ -34,6 +39,7 @@ class MapContainer extends React.Component {
               }
             }
             animation={2}
+            address={address}
           />
         )
       })
@@ -41,6 +47,14 @@ class MapContainer extends React.Component {
         coords: markers
       })
     })
+  }
+
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
   }
 
   render() {
@@ -57,6 +71,15 @@ class MapContainer extends React.Component {
           initialCenter={{ lat: 42.364032, lng: -83.36044141186}}
           >
           {this.state.coords}
+
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}>
+              <div>
+                <p>{this.state.selectedPlace.address}</p>
+              </div>
+          </InfoWindow>
+
       </Map>
 
     )
