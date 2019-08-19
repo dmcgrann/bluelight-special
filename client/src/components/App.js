@@ -14,7 +14,7 @@ import SaleCard from '../components/sales/SaleCard'
 import EditSaleCard from '../components/sales/EditSaleCard'
 import EditSaleFormContainer from '../components/sales/EditSaleFormContainer'
 import NewSaleFormContainer from '../components/sales/NewSaleFormContainer'
-import MapContainer from '../MapContainer'
+import MapContainer from '../components/maps/MapContainer'
 
 class App extends React.Component {
 

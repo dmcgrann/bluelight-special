@@ -1,7 +1,7 @@
 import React from 'react';
 import {GoogleApiWrapper, InfoWindow, Map, Marker} from 'google-maps-react';
 import {connect} from 'react-redux';
-import {getSales} from './actions/saleList'
+import {getSales} from '../../actions/saleList'
 
 class MapContainer extends React.Component {
 
