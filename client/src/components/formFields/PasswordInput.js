@@ -2,11 +2,7 @@ import React from 'react';
 
 const PasswordInput = props => {
 
-    let formControl = "form-control";
-
-    if (!props.valid) {
-        formControl = 'form-control control-error';
-    }
+    const formControl = "form-control";
 
     return (
         <div className="form-group">

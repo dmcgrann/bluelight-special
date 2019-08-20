@@ -2,11 +2,7 @@ import React from 'react';
 
 const TextArea = props => {
 
-    let formControl = "form-control";
-
-    if (props.touched && !props.valid) {
-        formControl = 'form-control control-error';
-    }
+    const formControl = "form-control";
 
     return (
         <div className="form-group">
