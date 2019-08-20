@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import Logout from './users/Logout'
+import Logout from '../../components/users/Logout'
 
 const Footer = ( {currentUser, loggedIn} ) => {
   return (

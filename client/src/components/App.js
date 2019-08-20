@@ -8,8 +8,8 @@ import SignupForm from '../components/users/SignupForm'
 import LoginForm from '../components/users/LoginForm';
 import Logout from '../components/users/Logout';
 import SaleList from '../components/sales/SaleList'
-import NavBar from './NavBar'
-import Footer from './Footer'
+import NavBar from '../components/common/NavBar'
+import Footer from '../components/common/Footer'
 import SaleCard from '../components/sales/SaleCard'
 import EditSaleCard from '../components/sales/EditSaleCard'
 import EditSaleFormContainer from '../components/sales/EditSaleFormContainer'
