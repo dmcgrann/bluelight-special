@@ -18,7 +18,9 @@ class Api::V1::SalesController < ApplicationController
     if  @sale.save
       render json: SaleSerializer.new(@sale), status: :created
     else
-      render json: @sale.errors, status: :unprocessable_entity
+      render json: {
+        error: "There was an error with your submission. Please try again or contact an administrator."
+      }
     end
   end
 
@@ -27,7 +29,9 @@ class Api::V1::SalesController < ApplicationController
     if @sale.update(sale_params)
       render json: SaleSerializer.new(@sale), status: :ok
     else
-      render json: @sale.errors, status: :unprocessable_entity
+      render json: {
+        error: "There was an error with your submission. Please try again or contact an administrator."
+      }
     end
   end
 
@@ -36,7 +40,9 @@ class Api::V1::SalesController < ApplicationController
     if @sale.destroy
       render json: SaleSerializer.new(@sales), status: 204
     else
-      render json: @sale.errors, status: :unprocessable_entity
+      render json: {
+        error: "You cannot delete this item. Please contact an administrator."
+      }
     end
   end
 
@@ -48,6 +54,6 @@ class Api::V1::SalesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def sale_params
-      params.require(:sale).permit(:address, :days, :notes, :user_id)
+      params.require(:sale).permit(:address, :days, :notes, :user_id, :latitude, :longitude, :city, :country, :postalcode)
     end
 end
