@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {userSignup} from '../../actions/users';
 import {updateUserForm} from '../../actions/userForms';
+import TextInput from '../../components/formFields/TextInput'
+import EmailInput from '../../components/formFields/EmailInput'
+import PasswordInput from '../../components/formFields/PasswordInput'
 
 const SignupForm = ({ signupUserInfo, updateUserForm, userSignup, history }) => {
 
@@ -23,29 +26,29 @@ const SignupForm = ({ signupUserInfo, updateUserForm, userSignup, history }) => 
 
   return (
         <form onSubmit={handleSubmit}>
-          <h1>Sign Up Form</h1>
+          <h1>Create an Account</h1>
 
-          <label>Name</label>
-          <input
+          <TextInput
             name='name'
+            placeholder="Name"
             value={signupUserInfo.name}
             onChange={handleChange}
             /><br/>
 
-          <label>Email</label>
-          <input
+          <EmailInput
             name='email'
+            placeholder='Email'
             value={signupUserInfo.email}
             onChange={handleChange}
             /><br/>
 
-          <label>Password</label>
-          <input
-            type='password'
+          <PasswordInput
             name='password'
+            placeholder='Password'
             value={signupUserInfo.password}
             onChange={handleChange}
-            /><br/>
+            />
+          <p>*Passwords must be 6-20 characters in length.</p>
 
           <input type='submit'/>
         </form>

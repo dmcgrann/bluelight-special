@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {updateSaleForm} from '../../actions/saleForm';
-import TextInput from '../../components/common/TextInput'
-import TextArea from '../../components/common/TextArea'
+import TextInput from '../../components/formFields/TextInput'
+import TextArea from '../../components/formFields/TextArea'
 
 const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sale }) => {
 

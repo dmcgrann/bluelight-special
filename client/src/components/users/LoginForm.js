@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {userLogin} from '../../actions/users';
 import {updateUserForm} from '../../actions/userForms';
-import EmailInput from '../../components/common/EmailInput'
-import PasswordInput from '../../components/common/PasswordInput'
+import EmailInput from '../../components/formFields/EmailInput'
+import PasswordInput from '../../components/formFields/PasswordInput'
 
 const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
 
