@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {updateSaleForm} from '../../actions/saleForm';
+import TextInput from '../../components/common/TextInput'
+import TextArea from '../../components/common/TextArea'
 
 const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sale }) => {
 
@@ -18,23 +20,23 @@ const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sal
           }>
           <h1>Enter Your Garagesale Info</h1>
 
-          <label>Address</label>
-          <input
+          <TextInput
             name='address'
+            placeholder='Address'
             value={address}
             onChange={handleChange}
             /><br/>
 
-          <label>Days</label>
-          <input
+          <TextInput
             name='days'
+            placeholder='Dates and times.'
             value={days}
             onChange={handleChange}
             /><br/>
 
-          <label>Notes</label>
-          <input
+          <TextArea
             name='notes'
+            placeholder='Add any notes about your sale here...'
             value={notes}
             onChange={handleChange}
             /><br/>
