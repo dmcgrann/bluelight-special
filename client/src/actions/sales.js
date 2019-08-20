@@ -42,7 +42,7 @@ export const createSale = (details, history) => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          alert("You cannot add a sale at this time. Please contact administrator.")
+          alert(response.error)
         } else {
           dispatch(setCurrentSale(response.data))
           dispatch(getSales())
@@ -72,7 +72,7 @@ export const editSale = (details, history) => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          alert("You cannot edit this sale. Please contact administrator.")
+          alert(response.error)
         } else {
           dispatch(setEditSale(response.data))
           dispatch(getSales())
