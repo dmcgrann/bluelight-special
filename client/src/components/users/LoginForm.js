@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {userLogin} from '../../actions/users';
 import {updateUserForm} from '../../actions/userForms';
+import EmailInput from '../../components/common/EmailInput'
+import PasswordInput from '../../components/common/PasswordInput'
 
 const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
 
@@ -25,17 +27,17 @@ const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
     <form onSubmit={handleSubmit}>
             <h1>Login</h1>
 
-            <label>Email</label>
-            <input
+            <EmailInput
               name='email'
+              placeholder='Email'
               value={loginUserInfo.email}
               onChange={handleChange}
               /><br/>
 
-            <label>Password</label>
-            <input
-              type='password'
+
+            <PasswordInput
               name='password'
+              placeholder='Password'
               value={loginUserInfo.password}
               onChange={handleChange}
               /><br/>
