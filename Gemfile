@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'fast_jsonapi', '~> 1.5'
 
 gem 'dotenv-rails'
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
