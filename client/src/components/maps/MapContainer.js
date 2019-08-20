@@ -9,44 +9,10 @@ class MapContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      coords: [],
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {}
     }
-  }
-
-  componentDidMount = () => {
-    const {sales} = this.props
-    const coordinates = sales.map(sale => {
-      const convert = fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${sale.attributes.address}&key=`)
-        .then(r=>r.json())
-      return convert
-    })
-    Promise.all(coordinates).then(locations => {
-      const markers = locations.map((place,index) => {
-        const lat = place.results[0].geometry.location.lat;
-        const lng = place.results[0].geometry.location.lng;
-        const address = place.results[0].formatted_address;
-        return (
-          <Marker
-            onClick={this.onMarkerClick}
-            key={index}
-            position={
-              {
-                lat: lat,
-                lng:lng
-              }
-            }
-            animation={2}
-            address={address}
-          />
-        )
-      })
-      this.setState({
-        coords: markers
-      })
-    })
   }
 
   onMarkerClick = (props, marker, e) => {
@@ -58,6 +24,24 @@ class MapContainer extends React.Component {
   }
 
   render() {
+
+    const marker = this.props.sales.map((sale,index) => {
+      return(
+      <Marker
+        onClick={this.onMarkerClick}
+        key={index}
+        address={sale.attributes.address}
+        position={
+          {
+            lat: sale.attributes.latitude,
+            lng: sale.attributes.longitude
+          }
+        }
+        animation={2}
+      />
+      )
+    })
+
     const mapStyles = {
       width: '100%',
       height: '100%',
@@ -70,7 +54,8 @@ class MapContainer extends React.Component {
           style={mapStyles}
           initialCenter={{ lat: 42.364032, lng: -83.36044141186}}
           >
-          {this.state.coords}
+
+          {marker}
 
           <InfoWindow
             marker={this.state.activeMarker}
