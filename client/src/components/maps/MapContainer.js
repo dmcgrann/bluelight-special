@@ -5,27 +5,18 @@ import {getSales} from '../../actions/saleList'
 
 class MapContainer extends React.Component {
 
-
   constructor() {
     super();
     this.state = {
+      coords: [],
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {}
     }
   }
 
-  onMarkerClick = (props, marker, e) => {
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-  }
-
-  render() {
-
-    const marker = this.props.sales.map((sale,index) => {
+  componentDidMount(){
+    const markers = this.props.sales.map((sale,index) => {
       return(
       <Marker
         onClick={this.onMarkerClick}
@@ -41,6 +32,20 @@ class MapContainer extends React.Component {
       />
       )
     })
+    this.setState({
+        coords: markers
+      })
+  }
+
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  }
+
+  render() {
 
     const mapStyles = {
       width: '100%',
@@ -55,7 +60,7 @@ class MapContainer extends React.Component {
           initialCenter={{ lat: 42.364032, lng: -83.36044141186}}
           >
 
-          {marker}
+          {this.state.coords}
 
           <InfoWindow
             marker={this.state.activeMarker}
