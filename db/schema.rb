@@ -17,6 +17,11 @@ ActiveRecord::Schema.define(version: 2019_08_03_152530) do
     t.string "days"
     t.string "notes"
     t.integer "user_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "country"
+    t.string "city"
+    t.integer "postalcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
