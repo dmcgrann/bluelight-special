@@ -1,4 +1,4 @@
 class SaleSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :address, :days, :notes, :user_id
+  attributes :address, :latitude, :longitude, :days, :notes, :user_id
 end
