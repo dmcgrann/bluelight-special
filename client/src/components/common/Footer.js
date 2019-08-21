@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './style.css'
 import { connect } from 'react-redux'
 import Logout from '../../components/users/Logout'
 
