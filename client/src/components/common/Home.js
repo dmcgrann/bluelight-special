@@ -7,7 +7,7 @@ const Home = () => {
     return (
 
       <div className="background">
-        <img src={background} alt="main image" />
+        <img src={background} alt="main logo" />
 
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
