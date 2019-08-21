@@ -10,6 +10,7 @@ import Logout from '../components/users/Logout';
 import SaleList from '../components/sales/SaleList'
 import NavBar from '../components/common/NavBar'
 import Footer from '../components/common/Footer'
+import Home from '../components/common/Home'
 import SaleCard from '../components/sales/SaleCard'
 import EditSaleCard from '../components/sales/EditSaleCard'
 import EditSaleFormContainer from '../components/sales/EditSaleFormContainer'
@@ -31,7 +32,7 @@ class App extends React.Component {
       <>
         <NavBar />
         <Footer />
-        <Route exact path="/" />
+        <Route exact path="/" component={Home}/>
         <Route exact path="/login" component={LoginForm}/>
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/signup" component={SignupForm} />
