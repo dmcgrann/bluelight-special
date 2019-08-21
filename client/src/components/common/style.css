@@ -39,6 +39,12 @@ img {
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #efefef;
+  background-color: #F8F9FA !important;
   text-align: center;
+}
+
+@media screen and (max-width: 625px) {
+    .footer {
+    display: list-item;
+  }
 }
