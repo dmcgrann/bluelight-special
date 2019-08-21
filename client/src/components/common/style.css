@@ -18,7 +18,7 @@ body{
 }
 
 img {
-  margin-bottom: .75em;
+  margin-bottom: 3em;
   width: 75%;
   height: auto;
   border-radius: 50px;
@@ -26,6 +26,7 @@ img {
 }
 
 .background {
+  margin-top: 3em;
   padding: 1em;
   position: relative;
   text-align: center;
@@ -37,6 +38,7 @@ img {
   right: 0;
   bottom: 0;
   left: 0;
+  padding-bottom: .33em;
   color: #007BFF;
   text-align: center;
   display: inline-block;
@@ -52,28 +54,16 @@ img {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-
-
-
 #footertext {
   font-color: #F8F9FA;
   padding-top: .5em;
 }
 
-@media screen and (max-width: 625px) {
-    .footer {
-    display: list-item;
-    flex-direction: column;
-    padding: .5em 0 0 0;
-
-  }
-}
-
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 991px) {
     .background {
     padding: 0;
     overflow: auto;
-    margin: 1em 0 3em 0;
+    margin: 3em 0 1em 0;
 
   }
 }
