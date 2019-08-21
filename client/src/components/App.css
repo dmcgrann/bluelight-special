@@ -54,6 +54,8 @@
   background-color: #F8F9FA;
   color: #007BFF;
   border: none;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .form-control {

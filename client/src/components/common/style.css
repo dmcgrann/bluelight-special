@@ -37,16 +37,36 @@ img {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
-  background-color: #F8F9FA !important;
+  color: #007BFF;
   text-align: center;
+  display: inline-block;
+}
+
+
+
+
+.logout
+ {
+  background-color: #F8F9FA;
+  color: #007BFF;
+  border: none;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+
+
+
+#footertext {
+  font-color: #F8F9FA;
+  padding-top: .5em;
 }
 
 @media screen and (max-width: 625px) {
     .footer {
     display: list-item;
     flex-direction: column;
-    padding: 1em 0 0 0;
+    padding: .5em 0 0 0;
 
   }
 }
@@ -57,5 +77,11 @@ img {
     overflow: auto;
     margin: 1em 0 3em 0;
 
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #logout {
+    margin-top: 16px;
   }
 }
