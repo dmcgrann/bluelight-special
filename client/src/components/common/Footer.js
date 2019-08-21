@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './style.css'
 import { connect } from 'react-redux'
-import Logout from '../../components/users/Logout'
 
 const Footer = ( {currentUser, loggedIn} ) => {
   return (
@@ -9,12 +8,12 @@ const Footer = ( {currentUser, loggedIn} ) => {
 
       { loggedIn ?
         <>
-        <p>Logged in as {currentUser.attributes.email}.</p>
+        <p id="footertext">Logged in as {currentUser.attributes.email}.</p>
         <p>Copyright (c) 2019. All Rights Reserved.</p>
-        <Logout />
+
         </>
          :
-        <p>Copyright (c) 2019. All Rights Reserved.</p>
+        <p id="footertext">Copyright (c) 2019. All Rights Reserved.</p>
           }
     </div>
   );
