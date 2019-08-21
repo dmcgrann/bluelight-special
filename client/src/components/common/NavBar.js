@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Nav, Navbar, NavbarBrand, NavbarNavLink, NavbarNav, NavbarToggler, Collapse, NavItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 
 const NavBar = ( {currentUser, loggedIn} ) => {
   return (
