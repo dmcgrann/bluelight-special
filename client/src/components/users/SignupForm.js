@@ -1,10 +1,13 @@
 import React from 'react';
+import userForms from './userForms.css'
 import {connect} from 'react-redux';
 import {userSignup} from '../../actions/users';
 import {updateUserForm} from '../../actions/userForms';
 import TextInput from '../../components/formFields/TextInput'
 import EmailInput from '../../components/formFields/EmailInput'
 import PasswordInput from '../../components/formFields/PasswordInput'
+import {Form, Button}from 'react-bootstrap'
+
 
 const SignupForm = ({ signupUserInfo, updateUserForm, userSignup, history }) => {
 
@@ -25,7 +28,7 @@ const SignupForm = ({ signupUserInfo, updateUserForm, userSignup, history }) => 
 
 
   return (
-        <form onSubmit={handleSubmit}>
+        <Form className="form" onSubmit={handleSubmit}>
           <h1>Create an Account</h1>
 
           <TextInput
@@ -50,8 +53,10 @@ const SignupForm = ({ signupUserInfo, updateUserForm, userSignup, history }) => 
             />
           <p>*Passwords must be 6-20 characters in length.</p>
 
-          <input type='submit'/>
-        </form>
+            <Button variant="primary" type="submit">
+              Signup
+            </Button>
+        </Form>
       )
 }
 
