@@ -1,28 +1,35 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
+import { Nav, Navbar, NavbarBrand, NavbarNavLink, NavbarNav, NavbarToggler, Collapse, NavItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'react-bootstrap'
 
 const NavBar = ( {currentUser, loggedIn} ) => {
   return (
-    <div className="navbar" id="menuToggle">
 
-      { loggedIn ?
-        <>
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar.Brand href="/">BlueLight Special</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
 
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/sales">Sales</NavLink>
-        <NavLink to="/sales/new">Sale Form</NavLink>
-        <NavLink to="/map">Map View</NavLink>
+            { loggedIn ?
+              <>
 
-        </>
-         :
-        <>
-        <NavLink to="/sales">Sales</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/signup">Signup</NavLink>
-        </>
-          }
-    </div>
+              <Nav.Link href="/sales">Sales</Nav.Link>
+              <Nav.Link href="/sales/new">Sale Form</Nav.Link>
+              <Nav.Link href="/map">Map View</Nav.Link>
+
+              </>
+               :
+              <>
+              <Nav.Link href="/sales">Sales</Nav.Link>
+              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/signup">Signup</Nav.Link>
+              </>
+                }
+
+  </Navbar.Collapse>
+</Navbar>
+
+
   );
 };
 
