@@ -31,10 +31,3 @@
     transform: rotate(360deg);
   }
 }
-
-
-.form-control {
-  width: 50%;
-  border: 1px solid #ccc;
-  padding: 10px;
-}

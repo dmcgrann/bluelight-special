@@ -1,13 +1,18 @@
 import React from 'react';
+import {Form, FormGroup}from 'react-bootstrap'
 
 const EmailInput = props => {
 
-    const formControl = "form-control";
-
     return (
-        <div className="form-group">
-            <input type="email" className={formControl} {...props} />
-        </div>
+
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" {...props} />
+          <Form.Text className="text-muted">
+          </Form.Text>
+        </Form.Group>
+
+
     );
 }
 

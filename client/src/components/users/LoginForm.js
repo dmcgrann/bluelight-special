@@ -1,9 +1,12 @@
 import React from 'react';
+import userForms from './userForms.css'
 import {connect} from 'react-redux';
 import {userLogin} from '../../actions/users';
 import {updateUserForm} from '../../actions/userForms';
 import EmailInput from '../../components/formFields/EmailInput'
 import PasswordInput from '../../components/formFields/PasswordInput'
+import {Form, Button}from 'react-bootstrap'
+
 
 const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
 
@@ -24,7 +27,8 @@ const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+
+    <Form className="form" onSubmit={handleSubmit}>
             <h1>Login</h1>
 
             <EmailInput
@@ -32,18 +36,20 @@ const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
               placeholder='Email'
               value={loginUserInfo.email}
               onChange={handleChange}
-              /><br/>
-
+              />
 
             <PasswordInput
               name='password'
               placeholder='Password'
               value={loginUserInfo.password}
               onChange={handleChange}
-              /><br/>
+              />
 
-            <input type='submit'/>
-          </form>
+            <Button variant="primary" type="submit">
+              Login
+            </Button>
+
+          </Form>
 
         )
     }

@@ -1,13 +1,13 @@
 import React from 'react';
+import {Form, FormGroup}from 'react-bootstrap'
 
 const PasswordInput = props => {
-
-    const formControl = "form-control";
-
     return (
-        <div className="form-group">
-            <input type="password" className={formControl} {...props} />
-        </div>
+
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" {...props} />
+        </Form.Group>
     );
 }
 
