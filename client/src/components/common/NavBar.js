@@ -7,7 +7,7 @@ import Logout from '../../components/users/Logout'
 const NavBar = ( {currentUser, loggedIn} ) => {
   return (
 
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/">BlueLight Special</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
