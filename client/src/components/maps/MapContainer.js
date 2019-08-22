@@ -22,6 +22,8 @@ class MapContainer extends React.Component {
         onClick={this.onMarkerClick}
         key={index}
         address={sale.attributes.address}
+        days={sale.attributes.days}
+        notes={sale.attributes.notes}
         position={
           {
             lat: sale.attributes.latitude,
@@ -53,6 +55,7 @@ class MapContainer extends React.Component {
     };
 
     return (
+
       <Map
           google={this.props.google}
           zoom={12}
@@ -66,7 +69,12 @@ class MapContainer extends React.Component {
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
               <div>
-                <p>{this.state.selectedPlace.address}</p>
+                <p>Address:</p>
+                <ul>{this.state.selectedPlace.address}</ul>
+                <p>Details:</p>
+                <ul>{this.state.selectedPlace.days}</ul>
+                <ul>{this.state.selectedPlace.notes}</ul>
+
               </div>
           </InfoWindow>
 
