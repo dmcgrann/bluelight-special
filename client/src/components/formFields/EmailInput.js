@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, FormGroup}from 'react-bootstrap'
+import {Form}from 'react-bootstrap'
 
 const EmailInput = props => {
 

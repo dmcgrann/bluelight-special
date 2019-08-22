@@ -1,0 +1,26 @@
+h1 {
+  font-size: 32px;
+}
+
+.form {
+  margin: 20px;
+}
+
+.form-control {
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.mb-3_input-group, .input-group {
+  width: 50%;
+}
+
+.delete-button {
+  margin-left: 20px;
+}
+
+.sale-form-header {
+  font-size: 32px;
+  margin: 20px;
+}

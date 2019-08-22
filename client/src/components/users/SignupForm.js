@@ -1,5 +1,4 @@
 import React from 'react';
-import userForms from './userForms.css'
 import {connect} from 'react-redux';
 import {userSignup} from '../../actions/users';
 import {updateUserForm} from '../../actions/userForms';

@@ -1,13 +1,17 @@
 import React from 'react';
+import {InputGroup, FormControl} from 'react-bootstrap'
 
 const TextArea = props => {
 
-    const formControl = "form-control";
-
     return (
-        <div className="form-group">
-            <textarea {...props} className={formControl} />
-        </div>
+
+      <InputGroup>
+        <InputGroup.Prepend>
+          <InputGroup.Text></InputGroup.Text>
+        </InputGroup.Prepend>
+      <FormControl as="textarea" aria-label="" {...props}  />
+  </InputGroup>
+
     );
 }
 

@@ -11,7 +11,13 @@ const NewSaleFormContainer = ({ createSale, history }) => {
       userId
     }, history)
   }
-  return <SaleForm handleSubmit={handleSubmit}/>
+  return (
+    <>
+    <h1 className="sale-form-header">Enter Your Garagesale Information</h1>
+
+    <SaleForm handleSubmit={handleSubmit}/>
+    </>
+  )
 }
 
 

@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {updateSaleForm} from '../../actions/saleForm';
 import TextInput from '../../components/formFields/TextInput'
 import TextArea from '../../components/formFields/TextArea'
+import {Form, Button}from 'react-bootstrap'
+
 
 const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sale }) => {
 
@@ -14,25 +16,25 @@ const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sal
   }
 
   return (
-        <form onSubmit={event => {
+        <Form className="form" onSubmit={event => {
             event.preventDefault()
             handleSubmit(saleInfo)}
           }>
-          <h1>Enter Your Garagesale Info</h1>
 
           <TextInput
             name='address'
             placeholder='Address'
+            aria-label="test"
             value={address}
             onChange={handleChange}
-            /><br/>
+            />
 
           <TextInput
             name='days'
             placeholder='Dates and times.'
             value={days}
             onChange={handleChange}
-            /><br/>
+            />
 
           <TextArea
             name='notes'
@@ -41,8 +43,11 @@ const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sal
             onChange={handleChange}
             /><br/>
 
-          <input type='submit'/>
-        </form>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+            <br/>
+        </Form>
       )
 }
 
