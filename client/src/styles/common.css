@@ -21,12 +21,17 @@ body{
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-img {
-  margin-bottom: 3em;
-  width: 75%;
-  height: auto;
-  border-radius: 50px;
-  border: .25em solid #F8F9FA;
+a.nav-link{
+  color: red;
+}
+
+button:focus {
+    outline: 5px;
+}
+
+.navbar-dark .navbar-toggler {
+    color: red;
+    border-color: #626D75;
 }
 
 .background {
@@ -37,13 +42,21 @@ img {
   overflow: scroll;
 }
 
+.background-image {
+  margin-bottom: 3em;
+  width: 75%;
+  height: auto;
+  border-radius: 50px;
+  border: .25em solid #F8F9FA;
+}
+
 .footer {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   padding-bottom: .33em;
-  color: #007BFF;
+  color: #626D75;
   text-align: center;
   display: inline-block;
 }
@@ -51,8 +64,8 @@ img {
 
 .logout
  {
-  background-color: #F8F9FA;
-  color: #007BFF;
+  background-color: #343A40;
+  color: red;
   border: none;
   padding: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
