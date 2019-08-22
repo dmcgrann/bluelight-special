@@ -1,6 +1,7 @@
 import React from 'react';
 import common from '../styles/common.css';
 import forms from '../styles/forms.css'
+import sales from '../styles/sales.css'
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {getSales} from '../actions/saleList'
