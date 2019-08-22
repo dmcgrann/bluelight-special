@@ -47,7 +47,7 @@ export const createSale = (details, history) => {
           dispatch(setCurrentSale(response.data))
           dispatch(getSales())
           dispatch(clearSaleForm())
-          history.push('/')
+          history.push('/sales')
         }
       })
       .catch(console.log)
