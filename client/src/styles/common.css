@@ -34,6 +34,14 @@ button:focus {
     border-color: #626D75;
 }
 
+.dropdown-menu {
+  background-color: #343A40
+}
+
+.dropdown-menu :hover {
+  background-color: #343A40
+}
+
 .background {
   margin-top: 3em;
   padding: 1em;
@@ -55,15 +63,14 @@ button:focus {
   right: 0;
   bottom: 0;
   left: 0;
-  padding-bottom: .33em;
+  padding: 10px 0 10px;
   color: #626D75;
   text-align: center;
   display: inline-block;
 }
 
 
-.logout
- {
+.logout {
   background-color: #343A40;
   color: red;
   border: none;
