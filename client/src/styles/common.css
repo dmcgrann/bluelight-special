@@ -39,6 +39,12 @@ body{
   border: .25em solid #F8F9FA;
 }
 
+.background p {
+  text-align: justify;
+  margin-left: 75px;
+  margin-right: 75px;
+}
+
 .footer {
   position: absolute;
   right: 0;
