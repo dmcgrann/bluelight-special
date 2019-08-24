@@ -5,7 +5,7 @@ import {updateUserForm} from '../../actions/userForms';
 import TextInput from '../../components/formFields/TextInput'
 import EmailInput from '../../components/formFields/EmailInput'
 import PasswordInput from '../../components/formFields/PasswordInput'
-import {Form, Button}from 'react-bootstrap'
+import {Form, FormControl, Button}from 'react-bootstrap'
 
 
 const SignupForm = ({ signupUserInfo, updateUserForm, userSignup, history }) => {
@@ -30,19 +30,25 @@ const SignupForm = ({ signupUserInfo, updateUserForm, userSignup, history }) => 
         <Form className="form" onSubmit={handleSubmit}>
           <h1>Create an Account</h1>
 
-          <TextInput
+          <p>Please complete all fields. Your name and email address
+            are for our records only and will not be shared with anyone.</p>
+
+        <div className="signupName">
+          <label className="form-label">Name</label>
+          <FormControl
             name='name'
             placeholder="Name"
             value={signupUserInfo.name}
             onChange={handleChange}
-            /><br/>
+            />
+        </div>
 
           <EmailInput
             name='email'
             placeholder='Email'
             value={signupUserInfo.email}
             onChange={handleChange}
-            /><br/>
+            />
 
           <PasswordInput
             name='password'
