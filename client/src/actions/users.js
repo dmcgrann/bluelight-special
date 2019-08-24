@@ -57,7 +57,6 @@ export const userLogin = (user, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          dispatch(getSales())
           dispatch(clearUserForm())
           history.push('/')
         }
@@ -81,7 +80,6 @@ export const getCurrentUser = () => {
           console.log(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-
         }
       })
       .catch(console.log)
