@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = ( {currentUser, loggedIn} ) => {
+const Footer = () => {
   return (
     <div className="footer">
 
