@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import background from '../../background.jpg'
 
 const Home = () => {
@@ -9,13 +10,26 @@ const Home = () => {
         <img className="background-image" src={background} alt="main logo" />
 
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-        in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+        Welcome to the BlueLight Special App! This application is intended to help neighborhoods
+        organize community garagesale events. Communities could also choose to use the application
+        as a place to share information about anything from art fairs and craft shows to
+        restaurant weeks and other similar events.
+        </p>
+
+        <p>
+        The list of sales is available to anyone who visits the site. An interactive map is
+        available to account holders. An account is also required if you would like to add
+        information about an upcoming sale.
+        </p>
+
+        <p>
+        Creating an account is free and easy. Our site is completely secure,
+        and we promise not share your information with anyone. <Link to={'/signup'}>Create your account today!</Link>
+        </p>
+
+        <p>
+        Please contact admin [at] bluelight-special.com with any questions or comments.
+        </p>
 
       </div>
 
