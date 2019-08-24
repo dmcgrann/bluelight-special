@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Logout from '../../components/users/Logout'
 
 
@@ -18,7 +18,10 @@ const NavBar = ( {currentUser, loggedIn} ) => {
               <Nav.Link href="/sales">Sales</Nav.Link>
               <Nav.Link href="/sales/new">Sale Form</Nav.Link>
               <Nav.Link href="/map">Map View</Nav.Link>
-              <Nav.Link id="logout" href='/logout'> <Logout /> </Nav.Link>
+                <NavDropdown title={"Hello, " + currentUser.attributes.name +"!"} id="collasible-nav-dropdown">
+                  <NavDropdown.Divider />
+                <NavDropdown.Item hid="logout" href='/logout'><Logout /></NavDropdown.Item>
+              </NavDropdown>
 
               </>
                :
