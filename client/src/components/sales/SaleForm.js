@@ -23,11 +23,12 @@ const SaleForm = ({ saleInfo, updateSaleForm, handleSubmit, history, userId, sal
 
           <TextInput
             name='address'
-            placeholder='Address'
+            placeholder='Address (e.g. 123 Main St MyTown MI 12345)'
             aria-label="test"
             value={address}
             onChange={handleChange}
             />
+
 
           <TextInput
             name='days'
