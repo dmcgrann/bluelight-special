@@ -1,5 +1,4 @@
 import {clearUserForm} from './userForms'
-import {getSales} from './saleList'
 
 const setCurrentUser = user => {
   return {
