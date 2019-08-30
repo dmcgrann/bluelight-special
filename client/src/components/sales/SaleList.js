@@ -9,7 +9,7 @@ class SaleList extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      votes: []
+      votes: 0
 
     }
   }
@@ -17,6 +17,9 @@ class SaleList extends React.Component {
   upVote = () => {
 
     console.log("i was clicked")
+    this.setState((prevState, {votes}) => ({
+      votes: prevState.votes + 1
+    }))
 
   }
 
@@ -24,7 +27,7 @@ class SaleList extends React.Component {
 
   render() {
     const currentSales = this.props.sales != null ?
-    this.props.sales.map(sale => (<ListGroup><ListGroupItem key={sale.id}><Link to={`/sales/${sale.id}`}>{sale.attributes.address}</Link> <button onClick={this.upVote}>Vote</button> </ListGroupItem></ListGroup>)) :
+    this.props.sales.map(sale => (<ListGroup><ListGroupItem key={sale.id}><Link to={`/sales/${sale.id}`}>{sale.attributes.address}</Link> <button onClick={this.upVote}>Vote</button><span>{this.state.votes}</span></ListGroupItem></ListGroup>)) :
     <p>"There are not any current sales."</p>
 
 
