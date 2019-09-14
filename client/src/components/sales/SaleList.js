@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
+import {Card, Form, ListGroup, ListGroupItem} from 'react-bootstrap'
+import TextInput from '../../components/formFields/TextInput'
 import banner1 from '../../banner1.png'
 
 
@@ -36,15 +37,19 @@ class SaleList extends React.Component {
            <ListGroup className="list-group-flush">
              <h1>Current Listings</h1>
              <ListGroupItem>
+               <Form>
+                 <TextInput
+                   name="search"
+                   placeholder="Search..."
+                   value={this.state.search}
+                  onChange={this.handleSearch}
+                />
+               </Form>
                {saleSearch}
              </ListGroupItem>
            </ListGroup>
           </Card.Body>
        </Card>
-       <form>
-         <input name="search" value={this.state.search} onChange={this.handleSearch}></input>
-       </form>
-       <button onClick={this.handleClick}>Livonia</button>
 
        </>
 
