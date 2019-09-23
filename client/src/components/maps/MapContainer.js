@@ -15,7 +15,7 @@ class MapContainer extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const markers = this.props.sales.map((sale,index) => {
       return(
       <Marker
@@ -35,8 +35,8 @@ class MapContainer extends React.Component {
       )
     })
     this.setState({
-        coords: markers
-      })
+      coords: markers
+    })
   }
 
   onMarkerClick = (props, marker, e) => {
@@ -48,38 +48,31 @@ class MapContainer extends React.Component {
   }
 
   render() {
-
     const mapStyles = {
       width: '100%',
       height: '100%',
     };
 
     return (
-
       <Map
-          google={this.props.google}
-          zoom={12}
-          style={mapStyles}
-          initialCenter={{ lat: 42.364032, lng: -83.36044141186}}
-          >
-
-          {this.state.coords}
-
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}>
-              <div>
-                <p>Address:</p>
-                <ul>{this.state.selectedPlace.address}</ul>
-                <p>Details:</p>
-                <ul>{this.state.selectedPlace.days}</ul>
-                <ul>{this.state.selectedPlace.notes}</ul>
-
-              </div>
-          </InfoWindow>
-
+        google={this.props.google}
+        zoom={12}
+        style={mapStyles}
+        initialCenter={{ lat: 42.364032, lng: -83.36044141186}}
+      >
+        {this.state.coords}
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}>
+          <div>
+            <p>Address:</p>
+            <ul>{this.state.selectedPlace.address}</ul>
+            <p>Details:</p>
+            <ul>{this.state.selectedPlace.days}</ul>
+            <ul>{this.state.selectedPlace.notes}</ul>
+          </div>
+        </InfoWindow>
       </Map>
-
     )
   }
 }
