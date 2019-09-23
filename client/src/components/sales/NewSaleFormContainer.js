@@ -20,5 +20,4 @@ const NewSaleFormContainer = ({ createSale, history }) => {
   )
 }
 
-
- export default connect(null, { createSale })(NewSaleFormContainer);
+export default connect(null, { createSale })(NewSaleFormContainer);

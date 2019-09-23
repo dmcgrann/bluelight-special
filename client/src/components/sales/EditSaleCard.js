@@ -5,7 +5,6 @@ import banner1 from '../../banner1.png'
 
  const EditSaleCard = ({sale}) => {
   return(
-
     <Card>
       <Card.Img variant="top" src={banner1} />
       <Card.Body>
@@ -18,8 +17,7 @@ import banner1 from '../../banner1.png'
         <Link to={`/sales/${sale.id}/edit`}><Button variant="primary" type="submit" className="edit-button">Edit Sale</Button></Link>
       </Card.Body>
     </Card>
-
   )
 }
 
- export default EditSaleCard
+export default EditSaleCard

@@ -19,9 +19,6 @@ class SaleList extends React.Component {
     })
   }
 
-
-
-
   render() {
 
     const saleSearch = this.props.sales.filter(sale => sale.attributes.address.toLowerCase().includes(this.state.search))

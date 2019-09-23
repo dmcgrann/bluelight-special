@@ -8,13 +8,10 @@ const Logout = ({ logout }) => {
     <form onSubmit={(event) => {
       event.preventDefault()
       logout()
-      }}>
+    }}>
       <p><input className="logout" type="submit" value="Log Out" /></p>
     </form>
   )
 }
-
-
-
 
 export default connect(null, { logout })(Logout);

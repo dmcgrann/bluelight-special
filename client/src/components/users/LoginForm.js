@@ -18,47 +18,42 @@ const LoginForm = ({ loginUserInfo, updateUserForm, userLogin, history }) => {
     updateUserForm(updatedFormData)
   }
 
-
   const handleSubmit = event => {
     event.preventDefault()
     userLogin(loginUserInfo, history)
   }
 
-
   return (
 
     <Form className="form" onSubmit={handleSubmit}>
-            <h1>Login</h1>
+      <h1>Login</h1>
 
-            <EmailInput
-              name='email'
-              placeholder='Email'
-              value={loginUserInfo.email}
-              onChange={handleChange}
-              />
+      <EmailInput
+        name='email'
+        placeholder='Email'
+        value={loginUserInfo.email}
+        onChange={handleChange}
+      />
 
-            <PasswordInput
-              name='password'
-              placeholder='Password'
-              value={loginUserInfo.password}
-              onChange={handleChange}
-              />
+      <PasswordInput
+        name='password'
+        placeholder='Password'
+        value={loginUserInfo.password}
+        onChange={handleChange}
+      />
 
-            <Button variant="primary" type="submit">
-              Login
-            </Button>
-
-          </Form>
-
-        )
-    }
-
+      <Button variant="primary" type="submit">
+        Login
+      </Button>
+    </Form>
+    
+  )
+}
 
 const mapStateToProps = state => {
   return {
     loginUserInfo: state.loginForm
   }
 }
-
 
 export default connect(mapStateToProps, { updateUserForm, userLogin })(LoginForm);
