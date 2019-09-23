@@ -5,7 +5,6 @@ const setSaleList = sales => {
   }
 }
 
-
 export const getSales = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/sales", {

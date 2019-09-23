@@ -15,7 +15,6 @@ const setEditSale = sale => {
   }
 }
 
-
 const setDeleteSale = saleId => {
   return {
     type: "DELETE_SALE",
