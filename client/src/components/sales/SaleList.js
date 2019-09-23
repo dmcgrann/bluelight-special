@@ -28,7 +28,6 @@ class SaleList extends React.Component {
     .map(sale => (<ListGroup><ListGroupItem key={sale.id}><Link to={`/sales/${sale.id}`}>
       {sale.attributes.address}</Link></ListGroupItem></ListGroup>))
 
-
      return(
        <>
        <Card>
@@ -50,9 +49,7 @@ class SaleList extends React.Component {
            </ListGroup>
           </Card.Body>
        </Card>
-
        </>
-
      )
   }
 }
@@ -62,6 +59,5 @@ const mapStateToProps = state => {
     sales: state.saleList
   }
 }
-
 
 export default connect(mapStateToProps)(SaleList)
