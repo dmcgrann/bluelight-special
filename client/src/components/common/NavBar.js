@@ -9,8 +9,8 @@ const NavBar = ( {currentUser, loggedIn} ) => {
 
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="/">BlueLight Special</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
 
             { loggedIn ?
               <>
@@ -30,11 +30,10 @@ const NavBar = ( {currentUser, loggedIn} ) => {
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/signup">Signup</Nav.Link>
               </>
-                }
+            }
 
-  </Navbar.Collapse>
-</Navbar>
-
+      </Navbar.Collapse>
+    </Navbar>
 
   );
 };
